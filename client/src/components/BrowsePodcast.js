@@ -55,9 +55,9 @@ export default class BrowsePodcast extends Component {
         return (
             <div>
                 <h1>Browse All Podcasts</h1>
-                {this.state.allPodcasts.map(podcast => {
+                {this.state.allPodcasts.map((podcast, index) => {
                     return (
-                        <div>
+                        <div key={`t4n328on - ${index}`}>
                             <img src={podcast.image} />
                             <h1>{podcast.name}</h1>
                             <h3>{podcast.creator}</h3>
