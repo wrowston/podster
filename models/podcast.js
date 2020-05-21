@@ -27,7 +27,7 @@ function createPodcast(podcastData) {
 }
 
 function updatePodcast(podcastId, podcastData) {
-    PodcastModel.findByIdAndUpdate(podcastId, podcastData)
+    return PodcastModel.findByIdAndUpdate(podcastId, podcastData)
 }
 
 function deletePodcast(podcastId) {

@@ -26,7 +26,7 @@ function createCreator(creatorData) {
 }
 
 function updateCreator(creatorId, creatorData) {
-    CreatorModel.findByIdAndUpdate(creatorId, creatorData)
+    return CreatorModel.findByIdAndUpdate(creatorId, creatorData)
 }
 
 function deleteCreator(creatorId) {

@@ -24,7 +24,7 @@ function createUser(userData) {
 }
 
 function updateUser(userId, userData) {
-    UserModel.findByIdAndUpdate(userId, userData)
+    return UserModel.findByIdAndUpdate(userId, userData)
 }
 
 function deleteUser(userId) {

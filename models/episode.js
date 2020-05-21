@@ -26,7 +26,7 @@ function createEpisode(episodeData) {
 }
 
 function updateEpisode(episodeId, episodeData) {
-    EpisodeModel.findByIdAndUpdate(episodeId, episodeData)
+    return EpisodeModel.findByIdAndUpdate(episodeId, episodeData)
 }
 
 function deleteEpisode(episodeId) {
