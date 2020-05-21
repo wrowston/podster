@@ -122,7 +122,7 @@ export default class SinglePodcast extends Component {
                         </form>
                     </div>
                     : <div>
-                        <img src={this.state.podcast.image} alt='podcast cover art' />
+                        <img src={this.state.podcast.image} alt='podcast cover art' height={250} width={250} />
                         <h1>{this.state.podcast.name}</h1>
                         <h3>{this.state.podcast.creator}</h3>
                         <div>{this.state.podcast.description}</div>
