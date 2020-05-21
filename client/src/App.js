@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home';
 import AllPodcast from './components/AllPodcast.js';
+import SinglePodcast from './components/SinglePodcast.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
           <Route exact path='/podcast'>
             <AllPodcast />
           </Route>
+
+          <Route exact path='/podcast/:podcastId' component={SinglePodcast} />
         </Switch>
 
       </Router>

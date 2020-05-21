@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 export default class BrowsePodcast extends Component {
@@ -59,7 +60,7 @@ export default class BrowsePodcast extends Component {
                     return (
                         <div key={`t4n328on - ${index}`}>
                             <img src={podcast.image} />
-                            <h1>{podcast.name}</h1>
+                            <Link to={`/podcast/${podcast._id}`}><h1>{podcast.name}</h1></Link>
                             <h3>{podcast.creator}</h3>
                             <div>{podcast.description}</div>
                             <div>{podcast.genre}</div>
