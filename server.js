@@ -3,6 +3,7 @@ const app = express()
 
 const podcastRotuer = require('./controllers/podcast.js')
 const userRotuer = require('./controllers/user.js')
+const episodeRouter = require('./controllers/episode.js')
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
@@ -10,10 +11,8 @@ app.use(express.static(`${__dirname}/client/build`))
 
 app.use('/api/podcast', podcastRotuer)
 app.use('/api/user', userRotuer)
+app.use('/api/episode', episodeRouter)
 
-// app.get('/', (req, res) => {
-//     res.json('hello world')
-// })
 
 
 const PORT = process.env.PORT || 3001
