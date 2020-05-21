@@ -38,7 +38,7 @@ function deletePodcast(podcastId) {
 module.exports = {
     getAllPodcasts,
     getPodcastById,
-    create,
-    update,
+    createPodcast,
+    updatePodcast,
     deletePodcast
 }
