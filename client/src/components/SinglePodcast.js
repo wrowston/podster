@@ -38,8 +38,8 @@ export default class SinglePodcast extends Component {
                     <h3>{this.state.creator}</h3>
                     <div>{this.state.description}</div>
                     <div>{this.state.genre}</div>
-                    <div>{this.state.rating}</div>
-                    <div>{this.state.followers}</div>
+                    <div>Rewiews: {this.state.rating}</div>
+                    <div>Followers: {this.state.followers}</div>
                 </div>
             </div>
         )

@@ -64,8 +64,8 @@ export default class BrowsePodcast extends Component {
                             <h3>{podcast.creator}</h3>
                             <div>{podcast.description}</div>
                             <div>{podcast.genre}</div>
-                            <div>{podcast.rating}</div>
-                            <div>{podcast.followers}</div>
+                            <div>Rewiews: {podcast.rating}</div>
+                            <div>Followers: {podcast.followers}</div>
                         </div>
                     )
                 })}
