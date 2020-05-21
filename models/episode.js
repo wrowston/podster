@@ -1,0 +1,43 @@
+const mongoose = require('./connection.js')
+
+const EpisodeSchema = new mongoose.Schema({
+    name: String,
+    podcast: String,
+    description: String,
+    dateUploaded: String,
+    length: String,
+    favorites: Number,
+    listens: Number,
+})
+
+const EpisodeModel = mongoose.Model('episode', EpisodeSchema)
+
+
+function getAllEpisodes() {
+    return EpisodeModel.find({})
+}
+
+function getEpisodeById(episodeId) {
+    return EpisodeModel.findById(episodeId)
+}
+
+function createEpisode(episodeData) {
+    return EpisodeModel.create(episodeData)
+}
+
+function updateEpisode(episodeId, episodeData) {
+    EpisodeModel.findByIdAndUpdate(episodeId, episodeData)
+}
+
+function deleteEpisode(episodeId) {
+    return EpisodeModel.findByIdAndDelete(episodeId)
+}
+
+
+module.exports = {
+    getAllEpisodes,
+    getEpisodeById,
+    createEpisode,
+    updateEpisode,
+    deleteEpisode
+}
