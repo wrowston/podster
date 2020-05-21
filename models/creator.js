@@ -2,12 +2,9 @@ const mongoose = require('./connection.js')
 
 const CreatorSchema = new mongoose.Schema({
     name: String,
-    podcast: String,
-    description: String,
-    dateUploaded: String,
-    length: String,
-    favorites: Number,
-    listens: Number,
+    podcasts: Array,
+    userName: String,
+    password: String
 })
 
 const CreatorModel = mongoose.model('creator', CreatorSchema)

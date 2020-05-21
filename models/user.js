@@ -3,6 +3,7 @@ const mongoose = require('./connection.js')
 const UserSchema = new mongoose.Schema({
     userName: String,
     email: String,
+    password: String,
     following: Array,
     favoritedEpisodes: Array,
     currentlyListening: String,
