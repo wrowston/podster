@@ -1,9 +1,13 @@
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => {
-    res.json('hello world')
-})
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.static(`${__dirname}/client/build`))
+
+// app.get('/', (req, res) => {
+//     res.json('hello world')
+// })
 
 
 const PORT = process.env.PORT || 3001
