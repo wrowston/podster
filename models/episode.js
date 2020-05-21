@@ -10,7 +10,7 @@ const EpisodeSchema = new mongoose.Schema({
     listens: Number,
 })
 
-const EpisodeModel = mongoose.Model('episode', EpisodeSchema)
+const EpisodeModel = mongoose.model('episode', EpisodeSchema)
 
 
 function getAllEpisodes() {

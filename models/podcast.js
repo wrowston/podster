@@ -11,7 +11,7 @@ const PodcastSchema = new mongoose.Schema({
     image: String
 })
 
-const PodcastModel = mongoose.Model('podcast', PodcastSchema)
+const PodcastModel = mongoose.model('podcast', PodcastSchema)
 
 
 function getAllPodcasts() {

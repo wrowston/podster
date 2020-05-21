@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
     currentlyListening: String,
 })
 
-const UserModel = mongoose.Model('user', UserSchema)
+const UserModel = mongoose.model('user', UserSchema)
 
 
 function getAllUsers() {
