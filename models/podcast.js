@@ -22,11 +22,11 @@ function getPodcastById(podcastId) {
     return PodcastModel.findById(podcastId)
 }
 
-function create(podcastData) {
+function createPodcast(podcastData) {
     return PodcastModel.create(podcastData)
 }
 
-function update(podcastId, podcastData) {
+function updatePodcast(podcastId, podcastData) {
     PodcastModel.findByIdAndUpdate(podcastId, podcastData)
 }
 
