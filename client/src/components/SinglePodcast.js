@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import AllEpisodes from './AllEpisodes'
 
 export default class SinglePodcast extends Component {
 
@@ -138,6 +139,9 @@ export default class SinglePodcast extends Component {
                         : 'Edit Podcast'}
                 </button>
 
+                <AllEpisodes
+                    podcastId={this.props.match.params.podcastId}
+                />
             </div>
         )
     }

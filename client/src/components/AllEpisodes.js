@@ -23,13 +23,31 @@ export default class AllEpisodes extends Component {
 
     getAllEpisodesByPodcastId = async () => {
         try {
-            const podcastId = this.props.match.params.podcastId
+            const podcastId = this.props.podcastId
             const res = await axios.get(`/api/episode/podcast/${podcastId}`)
             const newState = { ...this.state }
             newState.allEpisodes = res.data
             this.setState(newState)
         } catch (error) {
             console.log('Failed to get all episodes by podcast ID')
+            console.log(error)
+        }
+    }
+
+
+    onChangeEpisode = (evt) => {
+        const newState = { ...this.state }
+        newState.episode[evt.target.name] = evt.target.value
+        this.setState(newState)
+    }
+
+    onSubmit = async (evt) => {
+        evt.preventDefault()
+        try {
+            await axios.post('/api/episode', this.state.episode)
+            this.getAllEpisodesByPodcastId()
+        } catch (error) {
+            console.log('Failed to get all episodes by podcast')
             console.log(error)
         }
     }
@@ -50,6 +68,56 @@ export default class AllEpisodes extends Component {
                         </div>
                     )
                 })}
+
+                <h5>Upload a New Episode</h5>
+                <form onSubmit={this.onSubmit}>
+                    <div>
+                        <label htmlFor="name">Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={this.state.episode.name}
+                            onChange={this.onChangeEpisode}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="podcastName">Podcast Name</label>
+                        <input
+                            type="text"
+                            name="podcastName"
+                            value={this.state.episode.podcastName}
+                            onChange={this.onChangeEpisode}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="description">Description</label>
+                        <input
+                            type="text"
+                            name="description"
+                            value={this.state.episode.description}
+                            onChange={this.onChangeEpisode}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="dateUploaded">Date Uploaded</label>
+                        <input
+                            type="text"
+                            name="dateUploaded"
+                            value={this.state.episode.dateUploaded}
+                            onChange={this.onChangeEpisode}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="length">Length</label>
+                        <input
+                            type="text"
+                            name="length"
+                            value={this.state.episode.length}
+                            onChange={this.onChangeEpisode}
+                        />
+                    </div>
+                    <input type="submit" value="Add Episode" />
+                </form>
             </div>
         )
     }

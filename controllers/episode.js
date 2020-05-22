@@ -33,7 +33,7 @@ episodeRouter.get('/:episodeId', async (req, res) => {
         const singleEpisode = await episodeModel.getEpisodeById(req.params.episodeId)
         res.json(singleEpisode)
     } catch (err) {
-        res.status(500).json(error)
+        res.json(error)
         console.log(err)
     }
 })
@@ -44,7 +44,7 @@ episodeRouter.post('/', async (req, res) => {
         await episodeModel.createEpisode(req.body)
         res.json('ok')
     } catch (err) {
-        res.status(500).json(error)
+        res.json(err)
         console.log(err)
     }
 })
