@@ -8,6 +8,7 @@ import UserLogin from './components/UserLogin.js'
 import SingleEpisode from './components/SingleEpisode.js'
 import AllCreators from './components/AllCreators.js'
 import NewCreator from './components/NewCreator';
+import CreatorProfile from './components/CreatorProfile';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={UserLogin} />
           <Route exact path='/creatorSignUp' component={NewCreator} />
+          <Route exact path='/creator/:creatorId' component={CreatorProfile} />
 
           <Route exact path='/podcast'>
             <AllPodcast />
