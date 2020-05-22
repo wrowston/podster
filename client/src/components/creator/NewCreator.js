@@ -43,7 +43,7 @@ export default class NewCreator extends Component {
                             value={this.state.creator.name} />
                     </div>
                     <div>
-                        <label htmlFor='userName'>User Name</label>
+                        <label htmlFor='userName'>Username</label>
                         <input
                             type='text'
                             name='userName'

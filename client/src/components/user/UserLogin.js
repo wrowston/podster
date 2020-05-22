@@ -33,7 +33,7 @@ export default class UserLogin extends Component {
             <div>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label htmlFor="userName">User Name</label>
+                        <label htmlFor="userName">Username</label>
                         <input type="text" name="userName" onChange={this.handleChange} value={this.state.user.userName} />
                     </div>
                     <div>

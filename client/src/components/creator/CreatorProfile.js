@@ -71,7 +71,7 @@ export default class CreatorProfile extends Component {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="userName">User Name</label>
+                                <label htmlFor="userName">Username</label>
                                 <input
                                     type="text"
                                     name="userName"

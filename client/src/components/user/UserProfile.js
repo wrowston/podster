@@ -66,7 +66,7 @@ export default class UserProfile extends Component {
                         <h4>Edit User</h4>
                         <form onSubmit={this.onSubmit}>
                             <div>
-                                <label htmlFor="userName">User Name</label>
+                                <label htmlFor="userName">Username</label>
                                 <input
                                     type="text"
                                     name="userName"
