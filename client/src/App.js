@@ -5,6 +5,7 @@ import AllPodcast from './components/AllPodcast.js';
 import SinglePodcast from './components/SinglePodcast.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import UserLogin from './components/UserLogin';
+import SingleEpisode from './components/SingleEpisode.js'
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           </Route>
 
           <Route exact path='/podcast/:podcastId' component={SinglePodcast} />
+
+          <Route exact path='/episode/:episodeId' component={SingleEpisode} />
         </Switch>
 
       </Router>

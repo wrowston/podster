@@ -7,7 +7,6 @@ export default class AllEpisodes extends Component {
     state = {
         episode: {
             name: '',
-            podcastName: '',
             description: '',
             dateUploaded: '',
             length: '',
@@ -59,8 +58,7 @@ export default class AllEpisodes extends Component {
                 {this.state.allEpisodes.map((episode, index) => {
                     return (
                         <div key={`45745gwg - ${index}`}>
-                            <div>{episode.name}</div>
-                            <div>{episode.podcastName}</div>
+                            <Link to={`/episode/${episode._id}`}><div>{episode.name}</div></Link>
                             <div>{episode.description}</div>
                             <div>{episode.dateUploaded}</div>
                             <div>{episode.length}</div>
@@ -78,15 +76,6 @@ export default class AllEpisodes extends Component {
                             type="text"
                             name="name"
                             value={this.state.episode.name}
-                            onChange={this.onChangeEpisode}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="podcastName">Podcast Name</label>
-                        <input
-                            type="text"
-                            name="podcastName"
-                            value={this.state.episode.podcastName}
                             onChange={this.onChangeEpisode}
                         />
                     </div>

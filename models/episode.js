@@ -2,7 +2,6 @@ const mongoose = require('./connection.js')
 
 const EpisodeSchema = new mongoose.Schema({
     name: String,
-    podcastName: String,
     description: String,
     dateUploaded: String,
     length: String,
