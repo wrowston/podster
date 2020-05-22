@@ -13,6 +13,7 @@ export default class AllEpisodes extends Component {
             length: '',
             favorites: 0,
             listens: 0,
+            podcastId: this.props.podcastId
         },
         allEpisodes: []
     }
@@ -113,6 +114,15 @@ export default class AllEpisodes extends Component {
                             type="text"
                             name="length"
                             value={this.state.episode.length}
+                            onChange={this.onChangeEpisode}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="podcastId">Podcast ID</label>
+                        <input
+                            type="text"
+                            name="podcastId"
+                            value={this.state.episode.podcastId}
                             onChange={this.onChangeEpisode}
                         />
                     </div>
