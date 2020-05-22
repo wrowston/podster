@@ -2,7 +2,7 @@ const mongoose = require('./connection.js')
 
 const EpisodeSchema = new mongoose.Schema({
     name: String,
-    podcast: String,
+    podcastName: String,
     description: String,
     dateUploaded: String,
     length: String,
@@ -25,6 +25,10 @@ function getEpisodeById(episodeId) {
     return EpisodeModel.findById(episodeId)
 }
 
+function getAllEpisodesByPodcastId(podcastId) {
+    return EpisodeModel.find({ podcastId })
+}
+
 function createEpisode(episodeData) {
     return EpisodeModel.create(episodeData)
 }
@@ -43,5 +47,6 @@ module.exports = {
     getEpisodeById,
     createEpisode,
     updateEpisode,
-    deleteEpisode
+    deleteEpisode,
+    getAllEpisodesByPodcastId
 }

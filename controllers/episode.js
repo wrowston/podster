@@ -1,5 +1,6 @@
 const express = require('express')
 const episodeModel = require('../models/episode.js')
+const podcastModel = require('../models/podcast.js')
 
 const episodeRouter = express.Router()
 
@@ -11,6 +12,18 @@ episodeRouter.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(error)
         console.log(err)
+    }
+})
+
+// GET ALL EPISODES BY A PODCAST
+episodeRouter.get('/podcast/:podcastId', async (req, res) => {
+    try {
+        const allEpisodes = await episodeModel.getAllEpisodesByPodcastId(req.params.podcastId)
+        //const podcast = await podcastModel.getPodcastById(req.params.podcastId)
+        res.json(allEpisodes)
+    } catch (err) {
+        console.log(err)
+        res.json(err)
     }
 })
 
