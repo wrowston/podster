@@ -20,7 +20,7 @@ export default class UserProfile extends Component {
     }
 
     getUserById = async () => {
-        const userId = this.props.match.params.userId
+        const userId = this.props.activeUserId
         console.log('userId', userId)
         const res = await axios.get(`/api/user/${userId}`)
         const newState = { ...this.state }

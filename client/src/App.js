@@ -11,6 +11,7 @@ import NewCreator from './components/creator/NewCreator.js'
 import CreatorProfile from './components/creator/CreatorProfile.js'
 import UserProfile from './components/user/UserProfile';
 import NewUser from './components/user/NewUser';
+import AllUsers from './components/user/AllUsers';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Link to='/'>Home</Link>
           <Link to='/podcast'>Browse</Link>
           <Link to='/creators'>Creators</Link>
+          <Link to='/users'>Users</Link>
         </nav>
         <Switch>
 
@@ -42,6 +44,7 @@ function App() {
           <Route exact path='/episode/:episodeId' component={SingleEpisode} />
 
           <Route exact path='/creators' component={AllCreators} />
+          <Route exact path='/users' component={AllUsers} />
         </Switch>
 
       </Router>

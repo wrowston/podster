@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+import axios from 'axios'
+import UserProfile from './UserProfile'
 
 export default class UserLogin extends Component {
     state = {
@@ -7,21 +9,45 @@ export default class UserLogin extends Component {
             userName: '',
             password: ''
         },
-        redirect: false
+        allUsers: [],
+        redirect: false,
+        login: false,
+        activeUserId: ''
+    }
+
+    componentDidMount() {
+        this.getAllUsers()
     }
 
     handleChange = (evt) => {
-        const updatedUser = { ...this.state.user }
-        updatedUser[evt.target.name] = evt.target.value
-        this.setState({ user: updatedUser })
+        const userLoggingIn = { ...this.state.user }
+        userLoggingIn[evt.target.name] = evt.target.value
+        this.setState({ user: userLoggingIn })
     }
 
-    onSubmit = (evt) => {
-        evt.prevetnDefault()
-        const newState = { ...this.state }
-        newState.redirect = true
-        this.props.setUserName(this.state.user.userName)
-        this.setState(newState)
+    getAllUsers = async () => {
+        try {
+            const res = await axios.get('/api/user')
+            const newState = { ...this.state }
+            newState.allUsers = res.data
+            this.setState(newState)
+        } catch (error) {
+            console.log('Failed to get all users')
+            console.log(error)
+        }
+    }
+
+    onLogin = (evt) => {
+        evt.preventDefault()
+        this.state.allUsers.forEach((user, index) => {
+            const newState = { ...this.state }
+            if (this.state.user.userName === user.userName &&
+                this.state.user.password === user.password) {
+                newState.login = true
+                newState.activeUserId = user._id
+                this.setState(newState)
+            }
+        })
     }
 
     render() {
@@ -31,17 +57,29 @@ export default class UserLogin extends Component {
 
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        <label htmlFor="userName">Username</label>
-                        <input type="text" name="userName" onChange={this.handleChange} value={this.state.user.userName} />
-                    </div>
-                    <div>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" />
-                    </div>
-                    <button>Log In</button>
-                </form>
+                {this.state.login
+                    ? <UserProfile activeUserId={this.state.activeUserId} />
+                    :
+                    <form onSubmit={this.onLogin}>
+                        <div>
+                            <label htmlFor="userName">Username</label>
+                            <input
+                                type="text"
+                                name="userName"
+                                onChange={this.handleChange}
+                                value={this.state.user.userName} />
+                        </div>
+                        <div>
+                            <label htmlFor="password">Password</label>
+                            <input
+                                type="password"
+                                name="password"
+                                onChange={this.handleChange}
+                                value={this.state.user.password}
+                            />
+                        </div>
+                        <button>Log In</button>
+                    </form>}
             </div>
         )
     }
