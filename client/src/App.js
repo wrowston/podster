@@ -4,8 +4,9 @@ import Home from './components/Home';
 import AllPodcast from './components/AllPodcast.js';
 import SinglePodcast from './components/SinglePodcast.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import UserLogin from './components/UserLogin';
+import UserLogin from './components/UserLogin.js'
 import SingleEpisode from './components/SingleEpisode.js'
+import AllCreators from './components/AllCreators.js'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <nav>
           <Link to='/'>Home</Link>
           <Link to='/podcast'>Browse</Link>
+          <Link to='/creators'>Creators</Link>
         </nav>
         <Switch>
 
@@ -28,6 +30,8 @@ function App() {
           <Route exact path='/podcast/:podcastId' component={SinglePodcast} />
 
           <Route exact path='/episode/:episodeId' component={SingleEpisode} />
+
+          <Route exact path='/creators' component={AllCreators} />
         </Switch>
 
       </Router>

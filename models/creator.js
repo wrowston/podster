@@ -2,7 +2,6 @@ const mongoose = require('./connection.js')
 
 const CreatorSchema = new mongoose.Schema({
     name: String,
-    podcasts: Array,
     userName: String,
     password: String
 })
