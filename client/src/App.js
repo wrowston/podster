@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 import Home from './components/Home';
-import AllPodcast from './components/AllPodcast.js';
-import SinglePodcast from './components/SinglePodcast.js'
+import AllPodcast from './components/podcast/AllPodcast.js';
+import SinglePodcast from './components/podcast/SinglePodcast.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import UserLogin from './components/UserLogin.js'
-import SingleEpisode from './components/SingleEpisode.js'
+import UserLogin from './components/user/UserLogin.js'
+import SingleEpisode from './components/episode/SingleEpisode.js'
 import AllCreators from './components/creator/AllCreators.js'
 import NewCreator from './components/creator/NewCreator.js'
 import CreatorProfile from './components/creator/CreatorProfile.js'
+import UserProfile from './components/user/UserProfile';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
 
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={UserLogin} />
+          <Route exact path='/user/:userId' component={UserProfile} />
           <Route exact path='/creatorSignUp' component={NewCreator} />
           <Route exact path='/creator/:creatorId' component={CreatorProfile} />
 

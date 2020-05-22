@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import AllEpisodes from './AllEpisodes.js'
+import AllEpisodes from '../episode/AllEpisodes.js'
 
 export default class SinglePodcast extends Component {
 
