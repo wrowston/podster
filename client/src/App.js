@@ -10,6 +10,7 @@ import AllCreators from './components/creator/AllCreators.js'
 import NewCreator from './components/creator/NewCreator.js'
 import CreatorProfile from './components/creator/CreatorProfile.js'
 import UserProfile from './components/user/UserProfile';
+import NewUser from './components/user/NewUser';
 
 function App() {
   return (
@@ -24,8 +25,11 @@ function App() {
         <Switch>
 
           <Route exact path='/' component={Home} />
+
           <Route exact path='/login' component={UserLogin} />
+          <Route exact path='/userSignUp' component={NewUser} />
           <Route exact path='/user/:userId' component={UserProfile} />
+
           <Route exact path='/creatorSignUp' component={NewCreator} />
           <Route exact path='/creator/:creatorId' component={CreatorProfile} />
 

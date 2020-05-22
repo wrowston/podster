@@ -6,11 +6,11 @@ export default class Home extends Component {
         return (
             <div>
                 <h1>Podster Home Page</h1>
-                {/* <Link>
+                <Link to='/userSignUp'>
                     <button>
                         Sign Up
                     </button>
-                </Link> */}
+                </Link>
 
                 <Link to='/login'>
                     <button>
