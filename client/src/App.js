@@ -6,9 +6,9 @@ import SinglePodcast from './components/SinglePodcast.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import UserLogin from './components/UserLogin.js'
 import SingleEpisode from './components/SingleEpisode.js'
-import AllCreators from './components/AllCreators.js'
-import NewCreator from './components/NewCreator';
-import CreatorProfile from './components/CreatorProfile';
+import AllCreators from './components/creator/AllCreators.js'
+import NewCreator from './components/creator/NewCreator.js'
+import CreatorProfile from './components/creator/CreatorProfile.js'
 
 function App() {
   return (
