@@ -4,6 +4,7 @@ import Home from './components/Home';
 import AllPodcast from './components/AllPodcast.js';
 import SinglePodcast from './components/SinglePodcast.js'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import UserLogin from './components/UserLogin';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
 
           <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={UserLogin} />
 
           <Route exact path='/podcast'>
             <AllPodcast />
@@ -27,7 +29,7 @@ function App() {
 
       </Router>
 
-    </div>
+    </div >
   );
 }
 

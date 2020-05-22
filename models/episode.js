@@ -8,6 +8,10 @@ const EpisodeSchema = new mongoose.Schema({
     length: String,
     favorites: Number,
     listens: Number,
+    podcastId: {
+        type: String,
+        required: true
+    }
 })
 
 const EpisodeModel = mongoose.model('episode', EpisodeSchema)

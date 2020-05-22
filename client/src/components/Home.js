@@ -12,9 +12,9 @@ export default class Home extends Component {
                     </button>
                 </Link>
 
-                <Link>
+                <Link to='/login'>
                     <button>
-                        Sign In
+                        Log In
                     </button>
                 </Link>
 
