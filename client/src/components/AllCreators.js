@@ -31,7 +31,7 @@ export default class AllCreators extends Component {
                 {this.state.allCreators.map((creator, index) => {
                     return (
                         <div key={`ht6wb645 - ${index}`}>
-                            <h3>{creator.name}</h3>
+                            <Link to={`/creator/${creator._id}`}><h3>{creator.name}</h3></Link>
                         </div>
                     )
                 })}
