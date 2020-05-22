@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import UserLogin from './components/UserLogin.js'
 import SingleEpisode from './components/SingleEpisode.js'
 import AllCreators from './components/AllCreators.js'
+import NewCreator from './components/NewCreator';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
 
           <Route exact path='/' component={Home} />
           <Route exact path='/login' component={UserLogin} />
+          <Route exact path='/creatorSignUp' component={NewCreator} />
 
           <Route exact path='/podcast'>
             <AllPodcast />
