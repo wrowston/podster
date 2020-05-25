@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import Sound from 'react-sound'
 
 export default class SingleEpisode extends Component {
 
@@ -17,7 +16,8 @@ export default class SingleEpisode extends Component {
             audioFile: '',
             audioUrl: ''
         },
-        showEditForm: false
+        showEditForm: false,
+        play: false
     }
 
     componentDidMount() {
@@ -40,11 +40,6 @@ export default class SingleEpisode extends Component {
     toggleEditForm = () => {
         const showEditForm = !this.state.showEditForm
         this.setState({ showEditForm })
-    }
-
-    togglePlay = () => {
-        const play = !this.state.play
-        this.setState({ play })
     }
 
     onChangeCurrentEpisode = (evt) => {
@@ -108,28 +103,9 @@ export default class SingleEpisode extends Component {
                         <div>{this.state.episode.length}</div>
                         <div>Favorites: {this.state.episode.favorites}</div>
                         <div>Listen: {this.state.episode.listens}</div>
-                        <button onClick={this.togglePlay}>
-                            {this.state.play
-                                ? 'Pause'
-                                : 'Play'}
-                        </button>
-                        {this.state.play ?
-                            <Sound
-                                url={this.state.episode.audioUrl}
-                                playStatus={Sound.status.PLAYING}
-                                playFromPosition={0}
-                                onLoading={this.handleSongLoading}
-                                onPlaying={this.handleSongPlaying}
-                                onFinishedPlaying={this.handleSongFinishedPlaying}
-                            />
-                            : <Sound
-                                url={this.state.episode.audioUrl}
-                                playStatus={Sound.status.PAUSED}
-                                playFromPosition={0}
-                                onLoading={this.handleSongLoading}
-                                onPlaying={this.handleSongPlaying}
-                                onFinishedPlaying={this.handleSongFinishedPlaying}
-                            />}
+
+                        <audio controls src={this.state.episode.audioUrl}></audio>
+
                     </div>}
 
                 <button onClick={this.toggleEditForm}>
@@ -137,7 +113,7 @@ export default class SingleEpisode extends Component {
                         ? 'Hide Edit Episode Form'
                         : 'Edit Episode'}
                 </button>
-            </div>
+            </div >
         )
     }
 }
