@@ -9,7 +9,10 @@ const PodcastSchema = new mongoose.Schema({
     episodes: Array,
     followers: Number,
     image: String,
-    creatorId: String,
+    creatorId: {
+        type: String,
+        // required: true
+    },
     activeUser: {
         isFollowing: Boolean,
         userId: String

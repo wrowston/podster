@@ -17,7 +17,8 @@ export default class AllPodcast extends Component {
             activeUser: {
                 isLiked: false,
                 userId: ''
-            }
+            },
+            creatorId: this.props.creatorId
         },
         allPodcasts: []
     }
@@ -118,6 +119,15 @@ export default class AllPodcast extends Component {
                             type="text"
                             name="image"
                             value={this.state.newPodcast.image}
+                            onChange={this.onChangePodcast}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="creatorId">CreatorID</label>
+                        <input
+                            type="text"
+                            name="creatorId"
+                            value={this.state.newPodcast.creatorId}
                             onChange={this.onChangePodcast}
                         />
                     </div>
