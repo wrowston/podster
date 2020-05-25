@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { uploadCommonImage, deleteCommonImage } from '../../firebase/firebase.js'
+import { uploadCommonFile, deleteCommonFile } from '../../firebase/firebase.js'
 
 export default class AllPodcast extends Component {
 
@@ -66,7 +66,7 @@ export default class AllPodcast extends Component {
 
         // try to upload image to firebase
         try {
-            const uploadSnapshot = await uploadCommonImage(selectedImage);
+            const uploadSnapshot = await uploadCommonFile(selectedImage);
             // get  full url of image after it is uploaded
             const downloadURL = await uploadSnapshot.ref.getDownloadURL();
 
@@ -85,7 +85,6 @@ export default class AllPodcast extends Component {
     onChangePodcast = (evt) => {
         const newState = { ...this.state }
         newState.newPodcast[evt.target.name] = evt.target.value
-        // this.onFileSelect(this.state.newPodcast.image)
         this.setState(newState)
     }
 

@@ -10,7 +10,9 @@ const EpisodeSchema = new mongoose.Schema({
     podcastId: {
         type: String,
         required: true
-    }
+    },
+    audioFile: String,
+    audioUrl: String
 })
 
 const EpisodeModel = mongoose.model('episode', EpisodeSchema)

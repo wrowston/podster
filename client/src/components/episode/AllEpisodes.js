@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { uploadCommonFile, deleteCommonFile } from '../../firebase/firebase.js'
 
 export default class AllEpisodes extends Component {
 
@@ -12,7 +13,9 @@ export default class AllEpisodes extends Component {
             length: '',
             favorites: 0,
             listens: 0,
-            podcastId: this.props.podcastId
+            podcastId: this.props.podcastId,
+            audioFile: '',
+            audioUrl: ''
         },
         allEpisodes: [],
         showUploadForm: false
@@ -40,6 +43,43 @@ export default class AllEpisodes extends Component {
         this.setState({ showUploadForm })
     }
 
+    onUrlsChange = (audioUrl) => {
+        const newState = { ...this.state }
+        newState.episode.audioUrl = audioUrl
+        this.setState(newState)
+    }
+
+    onFileSelect = async (evt) => {
+        const { isPicSelected = () => { } } = this.props
+        isPicSelected()
+        console.log('onFileSelect called, fileList=', evt.target.files[0]);
+        if (evt.target.files[0] === null
+            || evt.target.files[0].length < 1) {
+            return;
+        }
+        // grab first audio selected
+        const selectedAudio = evt.target.files[0]
+        if (!selectedAudio) {
+            return;
+        }
+
+        // try to upload audio to firebase
+        try {
+            const uploadSnapshot = await uploadCommonFile(selectedAudio);
+            // get  full url of audio after it is uploaded
+            const downloadURL = await uploadSnapshot.ref.getDownloadURL();
+
+            // lets add the new URL to the array
+            const currentAudioURls = this.props.audioURLs || [];
+            const newAudioURLs = [...currentAudioURls, downloadURL];
+            // lets called the passed function for parent
+            this.onUrlsChange(downloadURL);
+            console.log('downloadURL', downloadURL);
+        } catch (err) {
+            console.error('failed to upload audio');
+            console.error(err);
+        }
+    }
 
     onChangeEpisode = (evt) => {
         const newState = { ...this.state }
@@ -70,6 +110,7 @@ export default class AllEpisodes extends Component {
                             <div>{episode.length}</div>
                             <div>Favorites: {episode.favorites}</div>
                             <div>Listens: {episode.listens}</div>
+                            <div>Listen {episode.audioUrl}</div>
                         </div>
                     )
                 })}
@@ -112,6 +153,24 @@ export default class AllEpisodes extends Component {
                                     type="text"
                                     name="length"
                                     value={this.state.episode.length}
+                                    onChange={this.onChangeEpisode}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="audioFile">Audio File</label>
+                                <input
+                                    type="file"
+                                    name="audioFile"
+                                    value={this.state.episode.audioFile}
+                                    onChange={this.onFileSelect}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="audioUrl">Audio URL</label>
+                                <input
+                                    type="text"
+                                    name="audioUrl"
+                                    value={this.state.episode.audaudioUrlioFile}
                                     onChange={this.onChangeEpisode}
                                 />
                             </div>

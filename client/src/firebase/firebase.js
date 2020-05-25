@@ -39,20 +39,20 @@ function generateUUID() { // Public Domain/MIT
     });
 }
 
-async function uploadCommonImage(image) {
+async function uploadCommonFile(file) {
     const guidFileName = generateUUID();
-    const imagePath = `common/images/${guidFileName}`;
-    const uploadTask = await ref.child(imagePath).put(image, { contentType: image.type });
+    const filePath = `common/images/${guidFileName}`;
+    const uploadTask = await ref.child(filePath).put(file, { contentType: file.type });
     return uploadTask;
 }
 
-async function deleteCommonImage(imageName) {
-    const imagePath = `common/images/${imageName}`;
-    const deleteTask = await ref.child(imagePath).delete();
+async function deleteCommonFile(fileName) {
+    const filePath = `common/images/${fileName}`;
+    const deleteTask = await ref.child(filePath).delete();
     return deleteTask;
 }
 
 export {
-    uploadCommonImage,
-    deleteCommonImage
+    uploadCommonFile,
+    deleteCommonFile
 };
