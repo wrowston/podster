@@ -131,7 +131,14 @@ export default class AllEpisodes extends Component {
                                     onPlaying={this.handleSongPlaying}
                                     onFinishedPlaying={this.handleSongFinishedPlaying}
                                 />
-                                : null}
+                                : <Sound
+                                    url={episode.audioUrl}
+                                    playStatus={Sound.status.PAUSED}
+                                    playFromPosition={0}
+                                    onLoading={this.handleSongLoading}
+                                    onPlaying={this.handleSongPlaying}
+                                    onFinishedPlaying={this.handleSongFinishedPlaying}
+                                />}
                         </div>
                     )
                 })}
