@@ -14,7 +14,8 @@ export default class AllEpisodes extends Component {
             listens: 0,
             podcastId: this.props.podcastId
         },
-        allEpisodes: []
+        allEpisodes: [],
+        showUploadForm: false
     }
 
     componentDidMount() {
@@ -32,6 +33,11 @@ export default class AllEpisodes extends Component {
             console.log('Failed to get all episodes by podcast ID')
             console.log(error)
         }
+    }
+
+    toggleUploadForm = () => {
+        const showUploadForm = !this.state.showEditshowUploadFormForm
+        this.setState({ showUploadForm })
     }
 
 
@@ -68,55 +74,69 @@ export default class AllEpisodes extends Component {
                     )
                 })}
 
-                <h5>Upload a New Episode</h5>
-                <form onSubmit={this.onSubmit}>
+
+                {this.state.showUploadForm ?
                     <div>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={this.state.episode.name}
-                            onChange={this.onChangeEpisode}
-                        />
+                        <h5>Upload a New Episode</h5>
+                        <form onSubmit={this.onSubmit}>
+                            <div>
+                                <label htmlFor="name">Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={this.state.episode.name}
+                                    onChange={this.onChangeEpisode}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="description">Description</label>
+                                <input
+                                    type="text"
+                                    name="description"
+                                    value={this.state.episode.description}
+                                    onChange={this.onChangeEpisode}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="dateUploaded">Date Uploaded</label>
+                                <input
+                                    type="text"
+                                    name="dateUploaded"
+                                    value={this.state.episode.dateUploaded}
+                                    onChange={this.onChangeEpisode}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="length">Length</label>
+                                <input
+                                    type="text"
+                                    name="length"
+                                    value={this.state.episode.length}
+                                    onChange={this.onChangeEpisode}
+                                />
+                            </div>
+                            <div>
+                                <label htmlFor="podcastId">Podcast ID</label>
+                                <input
+                                    type="text"
+                                    name="podcastId"
+                                    value={this.state.episode.podcastId}
+                                    onChange={this.onChangeEpisode}
+                                />
+                            </div>
+                            <input type="submit" value="Add Episode" />
+                        </form>
                     </div>
-                    <div>
-                        <label htmlFor="description">Description</label>
-                        <input
-                            type="text"
-                            name="description"
-                            value={this.state.episode.description}
-                            onChange={this.onChangeEpisode}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="dateUploaded">Date Uploaded</label>
-                        <input
-                            type="text"
-                            name="dateUploaded"
-                            value={this.state.episode.dateUploaded}
-                            onChange={this.onChangeEpisode}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="length">Length</label>
-                        <input
-                            type="text"
-                            name="length"
-                            value={this.state.episode.length}
-                            onChange={this.onChangeEpisode}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="podcastId">Podcast ID</label>
-                        <input
-                            type="text"
-                            name="podcastId"
-                            value={this.state.episode.podcastId}
-                            onChange={this.onChangeEpisode}
-                        />
-                    </div>
-                    <input type="submit" value="Add Episode" />
-                </form>
+                    :
+                    null
+                }
+
+                <button onClick={this.toggleUploadForm}>
+                    {this.state.showUploadForm
+                        ? 'Hide Upload Form'
+                        : 'Upload a New Episode'}
+                </button>
+
             </div>
         )
     }

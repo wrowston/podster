@@ -31,7 +31,7 @@ export default class AllPodcast extends Component {
                 {this.state.allPodcasts.map((podcast, index) => {
                     return (
                         <div key={`t4n328on - ${index}`}>
-                            <img src={podcast.image} alt='podcast cover art' height={250} width={250} />
+                            <img src={podcast.imageUrl} alt='podcast cover art' height={250} width={250} />
                             <Link to={`/podcast/${podcast._id}`}><h1>{podcast.name}</h1></Link>
                             <h3>{podcast.creator}</h3>
                             <div>{podcast.description}</div>
