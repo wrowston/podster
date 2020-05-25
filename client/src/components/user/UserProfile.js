@@ -104,6 +104,12 @@ export default class UserProfile extends Component {
                     </div>}
 
 
+                <button onClick={this.toggleEditForm}>
+                    {this.state.showEditForm
+                        ? 'Hide Edit Form'
+                        : 'Edit User Account'}
+                </button>
+
 
             </div>
         )
