@@ -14,6 +14,16 @@ podcastRouter.get('/', async (req, res) => {
     }
 })
 
+podcastRouter.get('/creator/:creatorId', async (req, res) => {
+    try {
+        const allPodcasts = await podcastModel.getAllPodcastByCreatorId(req.params.creatorId)
+        res.json(allPodcasts)
+    } catch (err) {
+        console.log(err)
+        res.json(err)
+    }
+})
+
 // GET ONE
 podcastRouter.get('/:podcastId', async (req, res) => {
     try {

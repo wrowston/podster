@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import AllPodcastsByCreator from '../podcast/AllPodcastsByCreator.js'
 
 export default class CreatorProfile extends Component {
 
@@ -100,6 +101,8 @@ export default class CreatorProfile extends Component {
                     <div>
                         <h2>{this.state.creator.name}</h2>
                         <div>{this.state.creator.userName}</div>
+                        <AllPodcastsByCreator
+                            creatorId={this.props.match.params.creatorId} />
                     </div>}
 
                 <button onClick={this.toggleEditForm}>
