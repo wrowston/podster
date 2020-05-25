@@ -14,7 +14,11 @@ export default class SinglePodcast extends Component {
             rating: '',
             episodes: [],
             followers: 0,
-            image: ''
+            image: '',
+            // activeUser: {
+            //     isFollowing: false,
+            //     userId: ''
+            // }
         },
         showEditForm: false
     }
@@ -40,6 +44,11 @@ export default class SinglePodcast extends Component {
         const showEditForm = !this.state.showEditForm
         this.setState({ showEditForm })
     }
+
+    // setIsFollowing = () => {
+    //     const isFollowing = !this.state.podcast.activeUser.isFollowing
+    //     this.setState({ isFollowing })
+    // }
 
     onChangeCurrentPodcast = (evt) => {
         const newState = { ...this.state }
@@ -125,6 +134,9 @@ export default class SinglePodcast extends Component {
                     : <div>
                         <img src={this.state.podcast.image} alt='podcast cover art' height={250} width={250} />
                         <h1>{this.state.podcast.name}</h1>
+                        {/* <button onClick={this.setIsFollowing}>
+                            {this.state.podcast.activeUser.isFollowing ? 'Following' : 'Follow'}
+                        </button> */}
                         <h3>{this.state.podcast.creator}</h3>
                         <div>{this.state.podcast.description}</div>
                         <div>{this.state.podcast.genre}</div>

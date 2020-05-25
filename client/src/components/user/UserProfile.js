@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import AllFollowingPodcasts from '../podcast/AllFollowingPodcasts.js'
 
 export default class UserProfile extends Component {
 
@@ -95,6 +96,9 @@ export default class UserProfile extends Component {
                     <div>
                         <h3>Username: {this.state.user.userName}</h3>
                         <div>Joined on {this.state.user.dateJoined}</div>
+                        <AllFollowingPodcasts
+                            activeUserId={this.props.activeUserId}
+                        />
                         <div>Following: {this.state.user.following}</div>
                         <div>Favorited Episodes: {this.state.user.favoritedEpisodes}</div>
                     </div>}

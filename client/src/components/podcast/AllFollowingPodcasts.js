@@ -15,7 +15,7 @@ export default class AllPodcast extends Component {
             followers: 0,
             image: '',
             activeUser: {
-                isLiked: false,
+                isFollowing: false,
                 userId: ''
             }
         },

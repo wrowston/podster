@@ -10,7 +10,7 @@ const PodcastSchema = new mongoose.Schema({
     followers: Number,
     image: String,
     activeUser: {
-        isLiked: Boolean,
+        isFollowing: Boolean,
         userId: String
     }
 })
