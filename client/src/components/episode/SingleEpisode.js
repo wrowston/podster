@@ -9,9 +9,7 @@ export default class SingleEpisode extends Component {
             name: '',
             description: '',
             dateUploaded: '',
-            length: '',
             favorites: 0,
-            listens: 0,
             episodeId: '',
             audioFile: '',
             audioUrl: ''
@@ -31,7 +29,6 @@ export default class SingleEpisode extends Component {
         newState.episode = res.data
         this.setState(newState)
     }
-
 
     onDeleteEpisode = async (episodeId) => {
         await axios.delete(`/api/episode/${episodeId}`)

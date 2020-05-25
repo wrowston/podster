@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { uploadCommonFile, deleteCommonFile } from '../../firebase/firebase.js'
 
 
+const moment = require('moment')
+
 export default class AllEpisodes extends Component {
 
     state = {
@@ -11,12 +13,11 @@ export default class AllEpisodes extends Component {
             name: '',
             description: '',
             dateUploaded: '',
-            length: '',
             favorites: 0,
-            listens: 0,
             podcastId: this.props.podcastId,
             audioFile: '',
-            audioUrl: ''
+            audioUrl: '',
+            dateUploaded: moment().format('L')
         },
         allEpisodes: [],
         showUploadForm: false,
@@ -141,20 +142,10 @@ export default class AllEpisodes extends Component {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="dateUploaded">Date Uploaded</label>
                                 <input
-                                    type="text"
+                                    type="hidden"
                                     name="dateUploaded"
                                     value={this.state.episode.dateUploaded}
-                                    onChange={this.onChangeEpisode}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="length">Length</label>
-                                <input
-                                    type="text"
-                                    name="length"
-                                    value={this.state.episode.length}
                                     onChange={this.onChangeEpisode}
                                 />
                             </div>
@@ -168,18 +159,16 @@ export default class AllEpisodes extends Component {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="audioUrl">Audio URL</label>
                                 <input
-                                    type="text"
+                                    type="hidden"
                                     name="audioUrl"
                                     value={this.state.episode.audaudioUrlioFile}
                                     onChange={this.onChangeEpisode}
                                 />
                             </div>
                             <div>
-                                <label htmlFor="podcastId">Podcast ID</label>
                                 <input
-                                    type="text"
+                                    type="hidden"
                                     name="podcastId"
                                     value={this.state.episode.podcastId}
                                     onChange={this.onChangeEpisode}
