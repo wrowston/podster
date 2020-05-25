@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { uploadCommonImage, deleteCommonImage } from '../../firebase/firebase.js'
 
 export default class AllPodcast extends Component {
 
     state = {
         newPodcast: {
             name: '',
-            creator: '',
             description: '',
             genre: '',
             rating: '',
-            episodes: [],
             followers: 0,
             image: '',
+            imageURL: '',
             activeUser: {
                 isLiked: false,
                 userId: ''
@@ -40,9 +40,52 @@ export default class AllPodcast extends Component {
         }
     }
 
+    fileSelectedHandler = (evt) => {
+        console.log(evt.target.files[0])
+    }
+
+    onUrlsChange = (imageUrl) => {
+        const newState = { ...this.state }
+        newState.newPodcast.imageURL = imageUrl
+        this.setState(newState)
+    }
+
+    onFileSelect = async (evt) => {
+        const { isPicSelected = () => { } } = this.props
+        isPicSelected()
+        console.log('onFileSelect called, fileList=', evt.target.files[0]);
+        if (evt.target.files[0] === null
+            || evt.target.files[0].length < 1) {
+            return;
+        }
+        // grab first image selected
+        const selectedImage = evt.target.files[0]
+        if (!selectedImage) {
+            return;
+        }
+
+        // try to upload image to firebase
+        try {
+            const uploadSnapshot = await uploadCommonImage(selectedImage);
+            // get  full url of image after it is uploaded
+            const downloadURL = await uploadSnapshot.ref.getDownloadURL();
+
+            // lets add the new URL to the array
+            const currentImageURls = this.props.imageURLs || [];
+            const newImageURLs = [...currentImageURls, downloadURL];
+            // lets called the passed function for parent
+            this.onUrlsChange(downloadURL);
+            console.log('downloadURL', downloadURL);
+        } catch (err) {
+            console.error('failed to upload image');
+            console.error(err);
+        }
+    }
+
     onChangePodcast = (evt) => {
         const newState = { ...this.state }
         newState.newPodcast[evt.target.name] = evt.target.value
+        // this.onFileSelect(this.state.newPodcast.image)
         this.setState(newState)
     }
 
@@ -50,7 +93,7 @@ export default class AllPodcast extends Component {
         evt.preventDefault()
         try {
             await axios.post('/api/podcast', this.state.newPodcast)
-            this.getAllPodcasts()
+            this.getAllPodcastsByCreatorId()
         } catch (error) {
             console.log('Failed to get all podcasts')
             console.log(error)
@@ -87,15 +130,6 @@ export default class AllPodcast extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="creator">Creator</label>
-                        <input
-                            type="text"
-                            name="creator"
-                            value={this.state.newPodcast.creator}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <div>
                         <label htmlFor="description">Description</label>
                         <input
                             type="text"
@@ -116,10 +150,10 @@ export default class AllPodcast extends Component {
                     <div>
                         <label htmlFor="image">Image</label>
                         <input
-                            type="text"
+                            type="file"
                             name="image"
                             value={this.state.newPodcast.image}
-                            onChange={this.onChangePodcast}
+                            onChange={this.onFileSelect}
                         />
                     </div>
                     <div>
@@ -128,6 +162,15 @@ export default class AllPodcast extends Component {
                             type="text"
                             name="creatorId"
                             value={this.state.newPodcast.creatorId}
+                            onChange={this.onChangePodcast}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="image">ImageURL</label>
+                        <input
+                            type="text"
+                            name="image"
+                            value={this.state.newPodcast.imageURL}
                             onChange={this.onChangePodcast}
                         />
                     </div>
