@@ -9,6 +9,7 @@ const PodcastSchema = new mongoose.Schema({
     episodes: Array,
     followers: Number,
     image: String,
+    creatorId: String,
     activeUser: {
         isFollowing: Boolean,
         userId: String
@@ -24,6 +25,10 @@ function getAllPodcasts() {
 
 function getPodcastById(podcastId) {
     return PodcastModel.findById(podcastId)
+}
+
+function getAllPodcastByCreatorId(creatorId) {
+    return PodcastModel.find({ creatorId })
 }
 
 function createPodcast(podcastData) {
@@ -44,5 +49,6 @@ module.exports = {
     getPodcastById,
     createPodcast,
     updatePodcast,
-    deletePodcast
+    deletePodcast,
+    getAllPodcastByCreatorId
 }
