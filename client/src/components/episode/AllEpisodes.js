@@ -36,7 +36,7 @@ export default class AllEpisodes extends Component {
     }
 
     toggleUploadForm = () => {
-        const showUploadForm = !this.state.showEditshowUploadFormForm
+        const showUploadForm = !this.state.showUploadForm
         this.setState({ showUploadForm })
     }
 

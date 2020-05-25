@@ -115,10 +115,10 @@ export default class SinglePodcast extends Component {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="image">Image</label>
+                                <label htmlFor="imageUrl">Image</label>
                                 <input
                                     type="text"
-                                    name="image"
+                                    name="imageUrl"
                                     value={this.state.podcast.image}
                                     onChange={this.onChangeCurrentPodcast}
                                 />
@@ -132,7 +132,7 @@ export default class SinglePodcast extends Component {
                         </form>
                     </div>
                     : <div>
-                        <img src={this.state.podcast.image} alt='podcast cover art' height={250} width={250} />
+                        <img src={this.state.podcast.imageUrl} alt='podcast cover art' height={250} width={250} />
                         <h1>{this.state.podcast.name}</h1>
                         {/* <button onClick={this.setIsFollowing}>
                             {this.state.podcast.activeUser.isFollowing ? 'Following' : 'Follow'}
