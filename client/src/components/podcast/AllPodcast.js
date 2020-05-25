@@ -13,7 +13,11 @@ export default class AllPodcast extends Component {
             rating: '',
             episodes: [],
             followers: 0,
-            image: ''
+            image: '',
+            activeUser: {
+                isLiked: false,
+                userId: ''
+            }
         },
         allPodcasts: []
     }

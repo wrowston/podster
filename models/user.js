@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     dateJoined: String,
     following: Array,
     favoritedEpisodes: Array,
-    currentlyListening: String,
+    currentlyListening: String
 })
 
 const UserModel = mongoose.model('user', UserSchema)

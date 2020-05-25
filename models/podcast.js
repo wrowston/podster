@@ -8,7 +8,11 @@ const PodcastSchema = new mongoose.Schema({
     rating: String,
     episodes: Array,
     followers: Number,
-    image: String
+    image: String,
+    activeUser: {
+        isLiked: Boolean,
+        userId: String
+    }
 })
 
 const PodcastModel = mongoose.model('podcast', PodcastSchema)
