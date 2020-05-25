@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { uploadCommonFile, deleteCommonFile } from '../../firebase/firebase.js'
+import Sound from 'react-sound';
 
 export default class AllEpisodes extends Component {
 
@@ -18,7 +19,8 @@ export default class AllEpisodes extends Component {
             audioUrl: ''
         },
         allEpisodes: [],
-        showUploadForm: false
+        showUploadForm: false,
+        play: false
     }
 
     componentDidMount() {
@@ -41,6 +43,11 @@ export default class AllEpisodes extends Component {
     toggleUploadForm = () => {
         const showUploadForm = !this.state.showUploadForm
         this.setState({ showUploadForm })
+    }
+
+    togglePlay = () => {
+        const play = !this.state.play
+        this.setState({ play })
     }
 
     onUrlsChange = (audioUrl) => {
@@ -110,7 +117,21 @@ export default class AllEpisodes extends Component {
                             <div>{episode.length}</div>
                             <div>Favorites: {episode.favorites}</div>
                             <div>Listens: {episode.listens}</div>
-                            <div>Listen {episode.audioUrl}</div>
+                            <button onClick={this.togglePlay}>
+                                {this.state.play
+                                    ? 'Pause'
+                                    : 'Play'}
+                            </button>
+                            {this.state.play ?
+                                <Sound
+                                    url={episode.audioUrl}
+                                    playStatus={Sound.status.PLAYING}
+                                    playFromPosition={0}
+                                    onLoading={this.handleSongLoading}
+                                    onPlaying={this.handleSongPlaying}
+                                    onFinishedPlaying={this.handleSongFinishedPlaying}
+                                />
+                                : null}
                         </div>
                     )
                 })}

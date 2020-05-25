@@ -19,6 +19,7 @@
     "mongoose": "^5.9.15",
     "nodemon": "^2.0.4",
     "react-firebase-file-uploader": "^2.4.3",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-sound": "^1.2.0"
   }
 }
