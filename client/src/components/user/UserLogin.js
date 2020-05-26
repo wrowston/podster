@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import UserProfile from './UserProfile'
+import UserView from './UserView'
 
 export default class UserLogin extends Component {
     state = {
@@ -58,7 +58,7 @@ export default class UserLogin extends Component {
         return (
             <div>
                 {this.state.login
-                    ? <UserProfile activeUserId={this.state.activeUserId} />
+                    ? <UserView activeUserId={this.state.activeUserId} />
                     :
                     <form onSubmit={this.onLogin}>
                         <div>

@@ -23,6 +23,12 @@ export default class Home extends Component {
                         Become a Creator
                     </button>
                 </Link>
+
+                <Link to='/explore'>
+                    <button>
+                        Continue as a Guest
+                    </button>
+                </Link>
             </div>
         )
     }
