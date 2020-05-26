@@ -140,3 +140,8 @@
   text-decoration: underline ;
   color: black;
 }
+
+.form-wrapper {
+  margin: 50px 400px 500px 400px;
+  text-align: left;
+}

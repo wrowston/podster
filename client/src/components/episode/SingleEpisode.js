@@ -63,33 +63,38 @@ export default class SingleEpisode extends Component {
                 {this.state.showEditForm
                     ?
                     <div>
-                        <h4>Edit Episode</h4>
-                        <form onSubmit={this.onSubmit}>
-                            <div>
-                                <label htmlFor="name">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={this.state.episode.name}
-                                    onChange={this.onChangeCurrentEpisode}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="description">Description</label>
-                                <input
-                                    type="text"
-                                    name="description"
-                                    value={this.state.episode.description}
-                                    onChange={this.onChangeCurrentEpisode}
-                                />
-                            </div>
-                            <Link to={'/'}>
-                                <button onClick={() => this.onDeleteEpisode(this.props.match.params.episodeId)}>
-                                    Delete
-                        </button>
-                            </Link>
-                            <input type="submit" value="Save" />
-                        </form>
+                        <h4 class='add-margin'>Edit Episode</h4>
+                        <div class='form-wrapper'>
+                            <form onSubmit={this.onSubmit}>
+                                <div class="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                        value={this.state.episode.name}
+                                        onChange={this.onChangeCurrentEpisode}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="description">Description</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="description"
+                                        value={this.state.episode.description}
+                                        onChange={this.onChangeCurrentEpisode}
+                                    />
+                                </div>
+                                <input type="submit" value="Save" class='btn btn-success' />
+                                <Link to={'/'}>
+                                    <button class='btn btn-danger add-margin' onClick={() => this.onDeleteEpisode(this.props.match.params.episodeId)}>
+                                        Delete
+                                    </button>
+                                </Link>
+                            </form>
+                            <button onClick={this.toggleEditForm} class='btn btn-dark'>Go Back to Episode</button>
+                        </div>
                     </div>
                     :
                     <div class="card text-center single-episode">
@@ -106,12 +111,6 @@ export default class SingleEpisode extends Component {
                             {this.state.episode.dateUploaded}
                         </div>
                     </div>}
-
-                <button onClick={this.toggleEditForm}>
-                    {this.state.showEditForm
-                        ? 'Hide Edit Episode Form'
-                        : 'Edit Episode'}
-                </button>
             </div >
         )
     }
