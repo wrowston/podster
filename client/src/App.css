@@ -61,11 +61,17 @@ body {
 }
 
 .podcast-creator {
+  color: black;
   font-size: 22px;
   font-weight: 200;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  text-decoration: none;
+}
+
+.podcast-creator:hover {
+  text-decoration: underline;
 }
 
 .podcast-info {

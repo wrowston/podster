@@ -33,6 +33,7 @@ export default class SinglePodcast extends Component {
         const res = await axios.get(`/api/podcast/${podcastId}`)
         const newState = { ...this.state }
         newState.podcast = res.data
+        console.log(res.data)
         this.setState(newState)
     }
 

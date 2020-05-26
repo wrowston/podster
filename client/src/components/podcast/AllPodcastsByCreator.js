@@ -8,9 +8,9 @@ export default class AllPodcast extends Component {
     state = {
         newPodcast: {
             name: '',
+            creator: '',
             description: '',
             genre: '',
-            rating: '',
             followers: 0,
             image: '',
             imageUrl: '',
@@ -25,6 +25,7 @@ export default class AllPodcast extends Component {
 
     componentDidMount() {
         this.getAllPodcastsByCreatorId()
+        this.getCreatorById()
     }
 
     getAllPodcastsByCreatorId = async () => {
@@ -38,6 +39,13 @@ export default class AllPodcast extends Component {
             console.log('Failed to get all podcasts by creator id')
             console.log(error)
         }
+    }
+
+    getCreatorById = async () => {
+        const res = await axios.get(`/api/creator/${this.props.creatorId}`)
+        const newState = { ...this.state }
+        newState.newPodcast.creator = res.data.name
+        this.setState(newState)
     }
 
     fileSelectedHandler = (evt) => {
@@ -158,9 +166,16 @@ export default class AllPodcast extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="creatorId">CreatorID</label>
                         <input
-                            type="text"
+                            type="hidden"
+                            name="creator"
+                            value={this.state.newPodcast.creator}
+                            onChange={this.onChangePodcast}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="hidden"
                             name="creatorId"
                             value={this.state.newPodcast.creatorId}
                             onChange={this.onChangePodcast}
