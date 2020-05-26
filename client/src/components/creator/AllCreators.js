@@ -27,14 +27,20 @@ export default class AllCreators extends Component {
     render() {
         return (
             <div>
-                <h2>Creators</h2>
-                {this.state.allCreators.map((creator, index) => {
-                    return (
-                        <div key={`ht6wb645 - ${index}`}>
-                            <Link to={`/creator/${creator._id}`}><h3>{creator.name}</h3></Link>
-                        </div>
-                    )
-                })}
+                <h2 class='add-margin'>Creators</h2>
+                <div class='creator-list'>
+                    {this.state.allCreators.map((creator, index) => {
+                        return (
+                            <div key={`ht6wb645 - ${index}`}>
+                                <Link
+                                    to={`/creator/${creator._id}`}
+                                    class="list-group-item list-group-item-action list-group-item-dark">
+                                    <div>{creator.name}</div>
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         )
     }
