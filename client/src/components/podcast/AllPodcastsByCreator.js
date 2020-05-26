@@ -20,7 +20,8 @@ export default class AllPodcast extends Component {
             },
             creatorId: this.props.creatorId
         },
-        allPodcasts: []
+        allPodcasts: [],
+        showAddForm: false
     }
 
     componentDidMount() {
@@ -46,6 +47,11 @@ export default class AllPodcast extends Component {
         const newState = { ...this.state }
         newState.newPodcast.creator = res.data.name
         this.setState(newState)
+    }
+
+    toggleAddForm = () => {
+        const showAddForm = !this.state.showAddForm
+        this.setState({ showAddForm })
     }
 
     fileSelectedHandler = (evt) => {
@@ -110,88 +116,109 @@ export default class AllPodcast extends Component {
     render() {
         return (
             <div>
-                <div class='podcast-list-wrapper'>
-                    {this.state.allPodcasts.map((podcast, index) => {
-                        return (
-                            <div key={`t4n328on - ${index}`} class='podcast-wrapper'>
-                                <img src={podcast.imageUrl} alt='podcast cover art' height={200} width={200} class='podcast-image' />
-                                <div class='podcast-info-wrapper'>
-                                    <Link to={`/podcast/${podcast._id}`} class='podcast-name'><div>{podcast.name}</div></Link>
-                                    <div class='podcast-creator'>{podcast.creator}</div>
-                                    <div class='podcast-info'>{podcast.genre}</div>
-                                    <div class='podcast-info'>{podcast.description}</div>
+                {this.state.showAddForm
+                    ?
+                    <div>
+                        <h3>Add a Podcast</h3>
+                        <div class='form-wrapper'>
+
+                            <form onSubmit={this.onSubmit}>
+                                <div class="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                        value={this.state.newPodcast.name}
+                                        onChange={this.onChangePodcast}
+                                    />
                                 </div>
-                            </div>
-                        )
-                    })}
-                </div>
+                                <div class="form-group">
+                                    <label htmlFor="description">Description</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="description"
+                                        value={this.state.newPodcast.description}
+                                        onChange={this.onChangePodcast}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="genre">Genre</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="genre"
+                                        value={this.state.newPodcast.genre}
+                                        onChange={this.onChangePodcast}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="image">Image</label>
+                                    <input
+                                        type="file"
+                                        class="add-margin"
+                                        name="image"
+                                        value={this.state.newPodcast.image}
+                                        onChange={this.onFileSelect}
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="hidden"
+                                        name="creator"
+                                        value={this.state.newPodcast.creator}
+                                        onChange={this.onChangePodcast}
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="hidden"
+                                        name="creatorId"
+                                        value={this.state.newPodcast.creatorId}
+                                        onChange={this.onChangePodcast}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="imageUrl">ImageURL</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="imageUrl"
+                                        value={this.state.newPodcast.imageUrl}
+                                        onChange={this.onChangePodcast}
+                                    />
+                                </div>
+                                <input type="submit" value="Add Podcast" class='btn btn-success' />
+                            </form>
+                            <button class='btn btn-dark add-top-margin-btn' onClick={this.toggleAddForm}>
+                                Go Back to Creator Profile
+                            </button>
+                        </div>
+                    </div>
+                    :
+                    <div>
+                        <div class='podcast-list-wrapper'>
+                            {this.state.allPodcasts.map((podcast, index) => {
+                                return (
+                                    <div key={`t4n328on - ${index}`} class='podcast-wrapper'>
+                                        <img src={podcast.imageUrl} alt='podcast cover art' height={200} width={200} class='podcast-image' />
+                                        <div class='podcast-info-wrapper'>
+                                            <Link to={`/podcast/${podcast._id}`} class='podcast-name'><div>{podcast.name}</div></Link>
+                                            <div class='podcast-creator'>{podcast.creator}</div>
+                                            <div class='podcast-info'>{podcast.genre}</div>
+                                            <div class='podcast-info'>{podcast.description}</div>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <button class='btn btn-dark' onClick={this.toggleAddForm}>
+                            Create a New Podcast
+                        </button>
+                    </div>
+                }
 
-                <h3>Add a Podcast</h3>
-
-                <form onSubmit={this.onSubmit}>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={this.state.newPodcast.name}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="description">Description</label>
-                        <input
-                            type="text"
-                            name="description"
-                            value={this.state.newPodcast.description}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="genre">Genre</label>
-                        <input
-                            type="text"
-                            name="genre"
-                            value={this.state.newPodcast.genre}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="image">Image</label>
-                        <input
-                            type="file"
-                            name="image"
-                            value={this.state.newPodcast.image}
-                            onChange={this.onFileSelect}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="hidden"
-                            name="creator"
-                            value={this.state.newPodcast.creator}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="hidden"
-                            name="creatorId"
-                            value={this.state.newPodcast.creatorId}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="imageUrl">ImageURL</label>
-                        <input
-                            type="text"
-                            name="imageUrl"
-                            value={this.state.newPodcast.imageUrl}
-                            onChange={this.onChangePodcast}
-                        />
-                    </div>
-                    <input type="submit" value="Add Podcast" />
-                </form>
             </div>
         )
     }

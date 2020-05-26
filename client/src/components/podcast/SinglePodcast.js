@@ -14,10 +14,6 @@ export default class SinglePodcast extends Component {
             followers: 0,
             image: '',
             creatorId: '',
-            // activeUser: {
-            //     isFollowing: false,
-            //     userId: ''
-            // }
         },
         showEditForm: false
     }
@@ -44,11 +40,6 @@ export default class SinglePodcast extends Component {
         const showEditForm = !this.state.showEditForm
         this.setState({ showEditForm })
     }
-
-    // setIsFollowing = () => {
-    //     const isFollowing = !this.state.podcast.activeUser.isFollowing
-    //     this.setState({ isFollowing })
-    // }
 
     onChangeCurrentPodcast = (evt) => {
         const newState = { ...this.state }
@@ -119,14 +110,23 @@ export default class SinglePodcast extends Component {
                                         onChange={this.onChangeCurrentPodcast}
                                     />
                                 </div>
-                                <input type="submit" value="Save" class='btn btn-success' />
+                                <input
+                                    type="submit"
+                                    value="Save"
+                                    class='btn btn-success' />
                                 <Link to={'/'}>
-                                    <button class='btn btn-danger add-margin' onClick={() => this.onDeletePodcast(this.props.match.params.podcastId)}>
+                                    <button
+                                        class='btn btn-danger add-margin'
+                                        onClick={() => this.onDeletePodcast(this.props.match.params.podcastId)}>
                                         Delete
                                     </button>
                                 </Link>
                             </form>
-                            <button onClick={this.toggleEditForm} class='btn btn-dark'>Go Back to Podcast</button>
+                            <button
+                                onClick={this.toggleEditForm}
+                                class='btn btn-dark'>
+                                Go Back to Podcast
+                            </button>
                         </div>
                     </div>
                     : <div class='single-podcast-wrapper'>
@@ -134,9 +134,6 @@ export default class SinglePodcast extends Component {
                             <img src={this.state.podcast.imageUrl} alt='podcast cover art' class='single-image' height={250} width={250} />
                             <div class='podcast-name-wrapper'>
                                 <div class='single-name'>{this.state.podcast.name}</div>
-                                {/* <button onClick={this.setIsFollowing}>
-                            {this.state.podcast.activeUser.isFollowing ? 'Following' : 'Follow'}
-                        </button> */}
                                 <div class='single-creator'>Created By: <Link to={`/creator/${this.state.podcast.creatorId}`} class='single-creator'></Link>{this.state.podcast.creator}</div>
                                 <div class='single-genre'>{this.state.podcast.genre}</div>
                             </div>
