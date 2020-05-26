@@ -5,7 +5,6 @@ const PodcastSchema = new mongoose.Schema({
     creator: String,
     description: String,
     genre: String,
-    rating: String,
     followers: Number,
     image: String,
     imageUrl: String,

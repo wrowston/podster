@@ -18,11 +18,10 @@ function App() {
     <div className="App">
       <h1>Podster</h1>
       <Router>
-        <nav>
-          <Link to='/'>Home</Link>
-          <Link to='/explore'>Explore</Link>
-          <Link to='/creators'>Creators</Link>
-          <Link to='/users'>Users</Link>
+        <nav class='navbar'>
+          <Link to='/' class='nav-link'>Home</Link>
+          <Link to='/explore' class='nav-link'>Explore</Link>
+          <Link to='/creators' class='nav-link'>Creators</Link>
         </nav>
         <Switch>
 

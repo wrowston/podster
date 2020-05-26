@@ -3,10 +3,8 @@ const mongoose = require('./connection.js')
 const EpisodeSchema = new mongoose.Schema({
     name: String,
     description: String,
-    dateUploaded: String,
-    length: String,
+    dateUploaded: Date,
     favorites: Number,
-    listens: Number,
     podcastId: {
         type: String,
         required: true
