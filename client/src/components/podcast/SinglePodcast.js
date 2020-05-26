@@ -122,18 +122,25 @@ export default class SinglePodcast extends Component {
                             <input type="submit" value="Save" />
                         </form>
                     </div>
-                    : <div class='podcast-list'>
-                        <img src={this.state.podcast.imageUrl} alt='podcast cover art' class='podcast-image' height={250} width={250} />
-                        <div class='podcast-info-wrapper'>
-                            <div class='podcast-name'>{this.state.podcast.name}</div>
-                            {/* <button onClick={this.setIsFollowing}>
+                    : <div class='single-podcast-wrapper'>
+                        <div class='image-name-creator-wrapper'>
+                            <img src={this.state.podcast.imageUrl} alt='podcast cover art' class='single-image' height={250} width={250} />
+                            <div class='podcast-name-wrapper'>
+                                <div class='single-name'>{this.state.podcast.name}</div>
+                                {/* <button onClick={this.setIsFollowing}>
                             {this.state.podcast.activeUser.isFollowing ? 'Following' : 'Follow'}
                         </button> */}
-                            <Link to={`/creator/${this.state.podcast.creatorId}`}></Link><div class='podcast-creator'>{this.state.podcast.creator}</div>
-                            <div class='podcast-info'>{this.state.podcast.description}</div>
-                            <div class='podcast-info'>{this.state.podcast.genre}</div>
-                            <div class='podcast-info'>Followers: {this.state.podcast.followers}</div>
+                                <div class='single-creator'>Created By: <Link to={`/creator/${this.state.podcast.creatorId}`} class='single-creator'></Link>{this.state.podcast.creator}</div>
+                                <div class='single-genre'>{this.state.podcast.genre}</div>
+                            </div>
                         </div>
+                        <div class='single-podcast-info-wrapper'>
+                            <div class='about'>ABOUT</div>
+                            <div class='single-description'>{this.state.podcast.description}</div>
+                        </div>
+                        <AllEpisodes
+                            podcastId={this.props.match.params.podcastId}
+                        />
                     </div>}
 
 
@@ -142,10 +149,6 @@ export default class SinglePodcast extends Component {
                         ? 'Hide Edit Podcast Form'
                         : 'Edit Podcast'}
                 </button>
-
-                <AllEpisodes
-                    podcastId={this.props.match.params.podcastId}
-                />
             </div>
         )
     }
