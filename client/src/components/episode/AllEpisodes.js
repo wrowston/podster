@@ -102,18 +102,34 @@ export default class AllEpisodes extends Component {
     render() {
         return (
             <div>
-                {this.state.allEpisodes.map((episode, index) => {
-                    return (
-                        <div key={`45745gwg - ${index}`} class='episode-wrapper'>
-                            <div class='episode'>
-                                <Link to={`/episode/${episode._id}`} class='episode-name'><div>{episode.name}</div></Link>
-                            </div>
-                            <div>
-                                <audio controls src={episode.audioUrl} class='episode-audio'></audio>
-                            </div>
-                        </div>
-                    )
-                })}
+                <table class='table'>
+                    <thead class="thead-dark">
+                        <th scope="col">Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Audio</th>
+                    </thead>
+                    <tbody>
+                        {this.state.allEpisodes.map((episode, index) => {
+                            return (
+                                <tr key={`45745gwg - ${index}`}>
+                                    <td>
+                                        <Link
+                                            to={`/episode/${episode._id}`}
+                                            class='episode-name'>
+                                            <div>{episode.name}</div>
+                                        </Link>
+                                    </td>
+                                    <td class='episode-info'>{episode.dateUploaded}</td>
+                                    <td>
+                                        <audio controls
+                                            src={episode.audioUrl}
+                                            class='episode-audio'></audio>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
 
 
                 {this.state.showUploadForm ?
