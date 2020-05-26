@@ -55,7 +55,7 @@ export default class CreatorProfile extends Component {
     render() {
         return (
             <div>
-                <h4>Creator Profile</h4>
+                <h4 class='add-margin'>Creator Profile</h4>
 
                 {this.state.showEditForm
                     ?
@@ -102,10 +102,14 @@ export default class CreatorProfile extends Component {
                         <h2>{this.state.creator.name}</h2>
                         <div>{this.state.creator.userName}</div>
                         <AllPodcastsByCreator
-                            creatorId={this.props.match.params.creatorId} />
+                            creatorId={this.props.match.params.creatorId}
+                            showEditForm={this.state.showEditForm}
+                            toggleEditForm={this.toggleEditForm} />
                     </div>}
 
-                <button onClick={this.toggleEditForm}>
+                <button
+                    class='btn btn-dark add-top-margin-btn'
+                    onClick={this.toggleEditForm}>
                     {this.state.showEditForm
                         ? 'Hide Edit Creator Account Form'
                         : 'Edit Creator Account'}
