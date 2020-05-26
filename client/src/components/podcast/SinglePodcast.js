@@ -77,50 +77,57 @@ export default class SinglePodcast extends Component {
                     ?
                     <div>
                         <h4>Edit Podcast</h4>
-                        <form onSubmit={this.onSubmit}>
-                            <div>
-                                <label htmlFor="name">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={this.state.podcast.name}
-                                    onChange={this.onChangeCurrentPodcast}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="description">Description</label>
-                                <input
-                                    type="text"
-                                    name="description"
-                                    value={this.state.podcast.description}
-                                    onChange={this.onChangeCurrentPodcast}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="genre">Genre</label>
-                                <input
-                                    type="text"
-                                    name="genre"
-                                    value={this.state.podcast.genre}
-                                    onChange={this.onChangeCurrentPodcast}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="imageUrl">Image</label>
-                                <input
-                                    type="text"
-                                    name="imageUrl"
-                                    value={this.state.podcast.image}
-                                    onChange={this.onChangeCurrentPodcast}
-                                />
-                            </div>
-                            <Link to={'/'}>
-                                <button onClick={() => this.onDeletePodcast(this.props.match.params.podcastId)}>
-                                    Delete
-                                </button>
-                            </Link>
-                            <input type="submit" value="Save" />
-                        </form>
+                        <div class='form-wrapper'>
+                            <form onSubmit={this.onSubmit}>
+                                <div class="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="name"
+                                        value={this.state.podcast.name}
+                                        onChange={this.onChangeCurrentPodcast}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="description">Description</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="description"
+                                        value={this.state.podcast.description}
+                                        onChange={this.onChangeCurrentPodcast}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="genre">Genre</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="genre"
+                                        value={this.state.podcast.genre}
+                                        onChange={this.onChangeCurrentPodcast}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="imageUrl">Image</label>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        name="imageUrl"
+                                        value={this.state.podcast.image}
+                                        onChange={this.onChangeCurrentPodcast}
+                                    />
+                                </div>
+                                <input type="submit" value="Save" class='btn btn-success' />
+                                <Link to={'/'}>
+                                    <button class='btn btn-danger add-margin' onClick={() => this.onDeletePodcast(this.props.match.params.podcastId)}>
+                                        Delete
+                                    </button>
+                                </Link>
+                            </form>
+                            <button onClick={this.toggleEditForm} class='btn btn-dark'>Go Back to Podcast</button>
+                        </div>
                     </div>
                     : <div class='single-podcast-wrapper'>
                         <div class='image-name-creator-wrapper'>
