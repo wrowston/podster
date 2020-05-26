@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Router>
         <nav class='navbar'>
-          <h1>Podify</h1>
+          <div class='title'>Podster</div>
           <Link to='/' class='nav-link'>Home</Link>
           <Link to='/explore' class='nav-link'>Explore</Link>
           <Link to='/creators' class='nav-link'>Creators</Link>
