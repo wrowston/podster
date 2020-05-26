@@ -194,10 +194,16 @@ export default class AllEpisodes extends Component {
                     null
                 }
 
-                <button onClick={this.toggleUploadForm}>
+                <button onClick={this.toggleUploadForm} type="button" class="btn btn-dark">
                     {this.state.showUploadForm
                         ? 'Hide Upload Form'
                         : 'Upload a New Episode'}
+                </button>
+
+                <button onClick={this.props.toggleEditForm} type="button" class="btn btn-dark add-margin">
+                    {this.props.showEditForm
+                        ? 'Hide Edit Podcast Form'
+                        : 'Edit Podcast'}
                 </button>
 
             </div>

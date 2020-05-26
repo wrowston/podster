@@ -140,15 +140,10 @@ export default class SinglePodcast extends Component {
                         </div>
                         <AllEpisodes
                             podcastId={this.props.match.params.podcastId}
+                            showEditForm={this.state.showEditForm}
+                            toggleEditForm={this.toggleEditForm}
                         />
                     </div>}
-
-
-                <button onClick={this.toggleEditForm}>
-                    {this.state.showEditForm
-                        ? 'Hide Edit Podcast Form'
-                        : 'Edit Podcast'}
-                </button>
             </div>
         )
     }
