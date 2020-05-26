@@ -92,14 +92,18 @@ export default class SingleEpisode extends Component {
                         </form>
                     </div>
                     :
-                    <div class='episode-card-wrapper'>
-                        <div class='episode-card'>
-                            <div class='single-episode-name'>{this.state.episode.name}</div>
-                            <div class='single-episode-description'>{this.state.episode.description}</div>
-                            <div class='single-episode-dateUploaded'>{this.state.episode.dateUploaded}</div>
-
-                            <audio controls src={this.state.episode.audioUrl} class='single-episode-audio'></audio>
-
+                    <div class="card text-center single-episode">
+                        <div class='card-header'>Current Episode</div>
+                        <div class='card-body '>
+                            <h5 class='card-title add-margin'>{this.state.episode.name}</h5>
+                            <div class='card-text add-margin'>{this.state.episode.description}</div>
+                            <div>
+                                <audio controls src={this.state.episode.audioUrl} class='single-episode-audio add-margin'></audio>
+                            </div>
+                            <button onClick={this.toggleEditForm} class='btn btn-dark add-margin'>Edit Episode</button>
+                        </div>
+                        <div class="card-footer text-muted">
+                            {this.state.episode.dateUploaded}
                         </div>
                     </div>}
 

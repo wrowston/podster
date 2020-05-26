@@ -116,15 +116,8 @@
   letter-spacing: 1px;
 }
 
-.single-description {
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.single-genre {
-  font-size: 14px;
-  font-weight: 200;
-  letter-spacing: 1px;
+.single-episode {
+  margin: 100px 200px 300px 200px;
 }
 
 .podcast-info {
@@ -133,7 +126,6 @@
   display: block;
   text-align: left;
 }
-
 
 .episode-name {
   font-size: 20px;
@@ -147,44 +139,4 @@
 .episode-name:hover {
   text-decoration: underline ;
   color: black;
-}
-
-.episode-info {
-  font-size: 16px;
-  font-weight: 200;
-}
-
-.episode-card {
-  border: black solid 1px;
-  border-radius: 5px;
-  width: 300px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin: 50px;
-}
-
-.episode-card-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.single-episode-name {
-  font-size: 26px;
-  letter-spacing: 1px;
-  padding-left: 10px;
-}
-
-.single-episode-description {
-  font-size: 14px;
-  padding-left: 10px;
-}
-
-.single-episode-dateUploaded {
-  font-size: 10px;
-  letter-spacing: 1px;
-  padding-left: 10px;
 }
