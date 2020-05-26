@@ -11,10 +11,9 @@ export default class SinglePodcast extends Component {
             creator: '',
             description: '',
             genre: '',
-            rating: '',
-            episodes: [],
             followers: 0,
             image: '',
+            creatorId: '',
             // activeUser: {
             //     isFollowing: false,
             //     userId: ''
@@ -89,15 +88,6 @@ export default class SinglePodcast extends Component {
                                 />
                             </div>
                             <div>
-                                <label htmlFor="creator">Creator</label>
-                                <input
-                                    type="text"
-                                    name="creator"
-                                    value={this.state.podcast.creator}
-                                    onChange={this.onChangeCurrentPodcast}
-                                />
-                            </div>
-                            <div>
                                 <label htmlFor="description">Description</label>
                                 <input
                                     type="text"
@@ -139,10 +129,9 @@ export default class SinglePodcast extends Component {
                             {/* <button onClick={this.setIsFollowing}>
                             {this.state.podcast.activeUser.isFollowing ? 'Following' : 'Follow'}
                         </button> */}
-                            <div class='podcast-creator'>{this.state.podcast.creator}</div>
+                            <Link to={`/creator/${this.state.podcast.creatorId}`}></Link><div class='podcast-creator'>{this.state.podcast.creator}</div>
                             <div class='podcast-info'>{this.state.podcast.description}</div>
                             <div class='podcast-info'>{this.state.podcast.genre}</div>
-                            <div class='podcast-info'>Rewiews: {this.state.podcast.rating}</div>
                             <div class='podcast-info'>Followers: {this.state.podcast.followers}</div>
                         </div>
                     </div>}
