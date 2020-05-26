@@ -1,35 +1,24 @@
-body {
-  background-color: #f5f5f5;
-}
 
 .App {
   text-align: center;
 }
 
-.navbar {
-  background-color: #ebebeb;
-  display: flex;
-  justify-content: center;
+.add-margin {
+  margin: 10px;
 }
 
 .title {
-  color: black;
+  color: white;
   padding: 5px;
   font-size: 25px;
   font-weight: 600;
 }
 
-.nav-link {
-  padding: 12px;
-  text-decoration: none;
-  color: black;
-  height: 100%;
-  font-size: 18px;
-  font-weight: 300;
+.nav-text-color {
+  color: white;
 }
-
-.nav-link:hover {
-  background-color: #9c9c9c;
+.nav-text-color:hover{
+  color: gray;
 }
 
 .podcast-list-wrapper {
@@ -156,7 +145,6 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-direction: column;
 }
 
 .episode-name {
@@ -166,6 +154,12 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.episode-name:hover {
+  text-decoration: underline ;
 }
 
 .episode-info {
@@ -173,4 +167,37 @@ body {
   font-weight: 200;
 }
 
+.episode-card {
+  border: black solid 1px;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin: 50px;
+}
 
+.episode-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-episode-name {
+  font-size: 26px;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}
+
+.single-episode-description {
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.single-episode-dateUploaded {
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding-left: 10px;
+}

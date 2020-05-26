@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import Home from './components/Home';
 import AllPodcast from './components/podcast/AllPodcast.js';
 import SinglePodcast from './components/podcast/SinglePodcast.js'
@@ -17,11 +18,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav class='navbar'>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class='title'>Podster</div>
-          <Link to='/' class='nav-link'>Home</Link>
-          <Link to='/explore' class='nav-link'>Explore</Link>
-          <Link to='/creators' class='nav-link'>Creators</Link>
+          <Link to='/' class="nav-item nav-link nav-text-color">Home</Link>
+          <Link to='/explore' class="nav-item nav-link nav-text-color">Explore</Link>
+          <Link to='/creators' class="nav-item nav-link nav-text-color">Creators</Link>
         </nav>
 
         <div class='wrapper'>

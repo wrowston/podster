@@ -9,7 +9,6 @@ export default class SingleEpisode extends Component {
             name: '',
             description: '',
             dateUploaded: '',
-            favorites: 0,
             episodeId: '',
             audioFile: '',
             audioUrl: ''
@@ -93,16 +92,15 @@ export default class SingleEpisode extends Component {
                         </form>
                     </div>
                     :
-                    <div>
-                        <h2>{this.state.episode.name}</h2>
-                        <div>{this.state.episode.description}</div>
-                        <div>{this.state.episode.dateUploaded}</div>
-                        <div>{this.state.episode.length}</div>
-                        <div>Favorites: {this.state.episode.favorites}</div>
-                        <div>Listen: {this.state.episode.listens}</div>
+                    <div class='episode-card-wrapper'>
+                        <div class='episode-card'>
+                            <div class='single-episode-name'>{this.state.episode.name}</div>
+                            <div class='single-episode-description'>{this.state.episode.description}</div>
+                            <div class='single-episode-dateUploaded'>{this.state.episode.dateUploaded}</div>
 
-                        <audio controls src={this.state.episode.audioUrl}></audio>
+                            <audio controls src={this.state.episode.audioUrl} class='single-episode-audio'></audio>
 
+                        </div>
                     </div>}
 
                 <button onClick={this.toggleEditForm}>

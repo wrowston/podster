@@ -12,8 +12,6 @@ export default class AllEpisodes extends Component {
         episode: {
             name: '',
             description: '',
-            dateUploaded: '',
-            favorites: 0,
             podcastId: this.props.podcastId,
             audioFile: '',
             audioUrl: '',
@@ -109,9 +107,6 @@ export default class AllEpisodes extends Component {
                         <div key={`45745gwg - ${index}`} class='episode-wrapper'>
                             <div class='episode'>
                                 <Link to={`/episode/${episode._id}`} class='episode-name'><div>{episode.name}</div></Link>
-                                <div class='episode-info'>{episode.description}</div>
-                                <div class='episode-info'>{episode.dateUploaded}</div>
-                                <div class='episode-info'>Favorites: {episode.favorites}</div>
                             </div>
                             <div>
                                 <audio controls src={episode.audioUrl} class='episode-audio'></audio>

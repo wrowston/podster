@@ -7,13 +7,14 @@ export default class Home extends Component {
             <div>
                 <h1>Podster Home Page</h1>
                 <Link to='/creatorSignUp'>
-                    <button>
+                    <button type="button" class="btn btn-dark">
                         Become a Creator
                     </button>
                 </Link>
 
                 <Link to='/explore'>
-                    <button>
+
+                    <button type="button" class="btn btn-dark add-margin">
                         Continue as a Guest
                     </button>
                 </Link>
