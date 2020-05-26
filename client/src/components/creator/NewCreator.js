@@ -32,33 +32,18 @@ export default class NewCreator extends Component {
 
     render() {
         return (
-            <div>
+            <div class='form-wrapper'>
                 <form onSubmit={this.onSubmit}>
-                    <div>
+                    <div class="form-group">
                         <label htmlFor='name'>Name</label>
                         <input
                             type='text'
+                            class='form-control'
                             name='name'
                             onChange={this.handleChange}
                             value={this.state.creator.name} />
                     </div>
-                    <div>
-                        <label htmlFor='userName'>Username</label>
-                        <input
-                            type='text'
-                            name='userName'
-                            onChange={this.handleChange}
-                            value={this.state.creator.userName} />
-                    </div>
-                    <div>
-                        <label htmlFor='password'>Password</label>
-                        <input
-                            type='password'
-                            name='password'
-                            onChange={this.handleChange}
-                            value={this.state.creator.password} />
-                    </div>
-                    <input type='submit' value='Create Account' />
+                    <input type='submit' value='Create Account' class='btn btn-success' />
                 </form>
 
             </div>
