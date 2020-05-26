@@ -1,15 +1,30 @@
+body {
+  background-color: #202020;
+  color: #dedede;
+}
+
+.wrapper {
+  width: 85%;
+  float: right;
+}
 .App {
   text-align: center;
 }
 
 .navbar {
-  display: flex;
-  justify-content: center;
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  background-color: #171717;
 }
 
 .nav-link {
+  color: #dedede;
   margin: 10px;
-  text-decoration: none
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .podcast-list {
@@ -48,3 +63,35 @@
   font-size: 16px;
   font-weight: 200;
 }
+
+.episode-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: solid 1px black;
+  border-radius: 5px;
+  margin: 3px 20px;
+}
+
+.episode {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.episode-name {
+  font-size: 30px;
+  font-weight: 300;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
+.episode-info {
+  font-size: 16px;
+  font-weight: 200;
+}
+
+

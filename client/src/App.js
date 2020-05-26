@@ -16,36 +16,38 @@ import AllUsers from './components/user/AllUsers';
 function App() {
   return (
     <div className="App">
-      <h1>Podster</h1>
       <Router>
         <nav class='navbar'>
+          <h1>Podify</h1>
           <Link to='/' class='nav-link'>Home</Link>
           <Link to='/explore' class='nav-link'>Explore</Link>
           <Link to='/creators' class='nav-link'>Creators</Link>
         </nav>
-        <Switch>
 
-          <Route exact path='/' component={Home} />
+        <div class='wrapper'>
+          <Switch>
 
-          <Route exact path='/login' component={UserLogin} />
-          <Route exact path='/userSignUp' component={NewUser} />
-          <Route exact path='/user/:userId' component={UserProfile} />
+            <Route exact path='/' component={Home} />
 
-          <Route exact path='/creatorSignUp' component={NewCreator} />
-          <Route exact path='/creator/:creatorId' component={CreatorProfile} />
+            <Route exact path='/login' component={UserLogin} />
+            <Route exact path='/userSignUp' component={NewUser} />
+            <Route exact path='/user/:userId' component={UserProfile} />
 
-          <Route exact path='/explore'>
-            <AllPodcast />
-          </Route>
+            <Route exact path='/creatorSignUp' component={NewCreator} />
+            <Route exact path='/creator/:creatorId' component={CreatorProfile} />
 
-          <Route exact path='/podcast/:podcastId' component={SinglePodcast} />
+            <Route exact path='/explore'>
+              <AllPodcast />
+            </Route>
 
-          <Route exact path='/episode/:episodeId' component={SingleEpisode} />
+            <Route exact path='/podcast/:podcastId' component={SinglePodcast} />
 
-          <Route exact path='/creators' component={AllCreators} />
-          <Route exact path='/users' component={AllUsers} />
-        </Switch>
+            <Route exact path='/episode/:episodeId' component={SingleEpisode} />
 
+            <Route exact path='/creators' component={AllCreators} />
+            <Route exact path='/users' component={AllUsers} />
+          </Switch>
+        </div>
       </Router>
 
     </div >

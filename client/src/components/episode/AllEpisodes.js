@@ -106,14 +106,16 @@ export default class AllEpisodes extends Component {
             <div>
                 {this.state.allEpisodes.map((episode, index) => {
                     return (
-                        <div key={`45745gwg - ${index}`}>
-                            <Link to={`/episode/${episode._id}`}><div>{episode.name}</div></Link>
-                            <div>{episode.description}</div>
-                            <div>{episode.dateUploaded}</div>
-                            <div>{episode.length}</div>
-                            <div>Favorites: {episode.favorites}</div>
-                            <div>Listens: {episode.listens}</div>
-                            <audio controls src={episode.audioUrl}></audio>
+                        <div key={`45745gwg - ${index}`} class='episode-wrapper'>
+                            <div class='episode'>
+                                <Link to={`/episode/${episode._id}`} class='episode-name'><div>{episode.name}</div></Link>
+                                <div class='episode-info'>{episode.description}</div>
+                                <div class='episode-info'>{episode.dateUploaded}</div>
+                                <div class='episode-info'>Favorites: {episode.favorites}</div>
+                            </div>
+                            <div>
+                                <audio controls src={episode.audioUrl} class='episode-audio'></audio>
+                            </div>
                         </div>
                     )
                 })}

@@ -131,17 +131,19 @@ export default class SinglePodcast extends Component {
                             <input type="submit" value="Save" />
                         </form>
                     </div>
-                    : <div>
-                        <img src={this.state.podcast.imageUrl} alt='podcast cover art' height={250} width={250} />
-                        <h1>{this.state.podcast.name}</h1>
-                        {/* <button onClick={this.setIsFollowing}>
+                    : <div class='podcast-list'>
+                        <img src={this.state.podcast.imageUrl} alt='podcast cover art' class='podcast-image' height={250} width={250} />
+                        <div class='podcast-info-wrapper'>
+                            <div class='podcast-name'>{this.state.podcast.name}</div>
+                            {/* <button onClick={this.setIsFollowing}>
                             {this.state.podcast.activeUser.isFollowing ? 'Following' : 'Follow'}
                         </button> */}
-                        <h3>{this.state.podcast.creator}</h3>
-                        <div>{this.state.podcast.description}</div>
-                        <div>{this.state.podcast.genre}</div>
-                        <div>Rewiews: {this.state.podcast.rating}</div>
-                        <div>Followers: {this.state.podcast.followers}</div>
+                            <div class='podcast-creator'>{this.state.podcast.creator}</div>
+                            <div class='podcast-info'>{this.state.podcast.description}</div>
+                            <div class='podcast-info'>{this.state.podcast.genre}</div>
+                            <div class='podcast-info'>Rewiews: {this.state.podcast.rating}</div>
+                            <div class='podcast-info'>Followers: {this.state.podcast.followers}</div>
+                        </div>
                     </div>}
 
 
