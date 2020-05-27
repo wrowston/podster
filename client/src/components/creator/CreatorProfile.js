@@ -79,7 +79,9 @@ export default class CreatorProfile extends Component {
                                         Delete
                                 </button>
                                 </Link>
-                                <input type="submit" value="Save" class='btn btn-success' />
+                                <Link to={`/creator/${this.props.match.params.creatorId}`}>
+                                    <input type="submit" value="Save" class='btn btn-success' />
+                                </Link>
                             </form>
                         </div>
                     </div>
