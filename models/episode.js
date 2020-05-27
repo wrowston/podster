@@ -3,7 +3,7 @@ const mongoose = require('./connection.js')
 const EpisodeSchema = new mongoose.Schema({
     name: String,
     description: String,
-    dateUploaded: Date,
+    dateUploaded: String,
     podcastId: {
         type: String,
         required: true

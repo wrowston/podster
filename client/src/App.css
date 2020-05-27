@@ -136,6 +136,13 @@
   padding: 10px;
 }
 
+.episode-info {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .episode-name:hover {
   text-decoration: underline ;
   color: black;

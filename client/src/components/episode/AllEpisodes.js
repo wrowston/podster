@@ -15,7 +15,7 @@ export default class AllEpisodes extends Component {
             podcastId: this.props.podcastId,
             audioFile: '',
             audioUrl: '',
-            dateUploaded: moment().format('L')
+            dateUploaded: moment().format('LL')
         },
         allEpisodes: [],
         showUploadForm: false,
@@ -113,7 +113,7 @@ export default class AllEpisodes extends Component {
                     <tbody>
                         {this.state.allEpisodes.map((episode, index) => {
                             return (
-                                <tr key={`45745gwg - ${index}`}>
+                                <tr key={`45745gwg - ${index}`} class='episode-table'>
                                     <td>
                                         <Link
                                             to={`/episode/${episode._id}`}
@@ -121,7 +121,7 @@ export default class AllEpisodes extends Component {
                                             <div>{episode.name}</div>
                                         </Link>
                                     </td>
-                                    <td class='episode-info'>{episode.dateUploaded}</td>
+                                    <td><div class='episode-info'>{episode.dateUploaded}</div></td>
                                     <td>
                                         <audio controls
                                             src={episode.audioUrl}
