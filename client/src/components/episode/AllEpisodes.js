@@ -50,10 +50,12 @@ export default class AllEpisodes extends Component {
         this.setState(newState)
     }
 
+
+    // code snippet provided by Brandon Moody
     onFileSelect = async (evt) => {
         const { isPicSelected = () => { } } = this.props
         isPicSelected()
-        console.log('onFileSelect called, fileList=', evt.target.files[0]);
+        console.log('onFileSelect called, fileList=', evt.target.files[0])
         if (evt.target.files[0] === null
             || evt.target.files[0].length < 1) {
             return;
@@ -66,19 +68,19 @@ export default class AllEpisodes extends Component {
 
         // try to upload audio to firebase
         try {
-            const uploadSnapshot = await uploadCommonFile(selectedAudio);
+            const uploadSnapshot = await uploadCommonFile(selectedAudio)
             // get  full url of audio after it is uploaded
-            const downloadURL = await uploadSnapshot.ref.getDownloadURL();
+            const downloadURL = await uploadSnapshot.ref.getDownloadURL()
 
             // lets add the new URL to the array
-            const currentAudioURls = this.props.audioURLs || [];
-            const newAudioURLs = [...currentAudioURls, downloadURL];
+            // const currentAudioURls = this.props.audioURLs || []
+            // const newAudioURLs = [...currentAudioURls, downloadURL]
             // lets called the passed function for parent
-            this.onUrlsChange(downloadURL);
-            console.log('downloadURL', downloadURL);
+            this.onUrlsChange(downloadURL)
+            console.log('downloadURL', downloadURL)
         } catch (err) {
-            console.error('failed to upload audio');
-            console.error(err);
+            console.error('failed to upload audio')
+            console.error(err)
         }
     }
 

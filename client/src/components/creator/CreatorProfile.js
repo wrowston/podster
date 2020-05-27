@@ -7,9 +7,7 @@ export default class CreatorProfile extends Component {
 
     state = {
         creator: {
-            name: '',
-            userName: '',
-            password: ''
+            name: ''
         },
         showEditForm: false
     }
@@ -71,24 +69,6 @@ export default class CreatorProfile extends Component {
                                     onChange={this.onChangeCurrentCreator}
                                 />
                             </div>
-                            <div>
-                                <label htmlFor="userName">Username</label>
-                                <input
-                                    type="text"
-                                    name="userName"
-                                    value={this.state.creator.userName}
-                                    onChange={this.onChangeCurrentCreator}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="password">Password</label>
-                                <input
-                                    type="text"
-                                    name="password"
-                                    value={this.state.creator.password}
-                                    onChange={this.onChangeCurrentCreator}
-                                />
-                            </div>
                             <Link to={'/'}>
                                 <button onClick={() => this.onDeleteCreator(this.props.match.params.creatorId)}>
                                     Delete
@@ -100,7 +80,6 @@ export default class CreatorProfile extends Component {
                     :
                     <div>
                         <h2>{this.state.creator.name}</h2>
-                        <div>{this.state.creator.userName}</div>
                         <AllPodcastsByCreator
                             creatorId={this.props.match.params.creatorId}
                             showEditForm={this.state.showEditForm}

@@ -6,9 +6,7 @@ export default class NewCreator extends Component {
 
     state = {
         creator: {
-            name: '',
-            userName: '',
-            password: ''
+            name: ''
         },
         redirect: false
     }

@@ -11,7 +11,6 @@ export default class SinglePodcast extends Component {
             creator: '',
             description: '',
             genre: '',
-            followers: 0,
             image: '',
             creatorId: '',
         },

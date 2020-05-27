@@ -14,10 +14,6 @@ export default class AllPodcast extends Component {
             followers: 0,
             image: '',
             imageUrl: '',
-            activeUser: {
-                isLiked: false,
-                userId: ''
-            },
             creatorId: this.props.creatorId
         },
         allPodcasts: [],
@@ -64,10 +60,11 @@ export default class AllPodcast extends Component {
         this.setState(newState)
     }
 
+    //code snippet provided by Brandon Moody
     onFileSelect = async (evt) => {
         const { isPicSelected = () => { } } = this.props
         isPicSelected()
-        console.log('onFileSelect called, fileList=', evt.target.files[0]);
+        console.log('onFileSelect called, fileList=', evt.target.files[0])
         if (evt.target.files[0] === null
             || evt.target.files[0].length < 1) {
             return;
@@ -80,19 +77,19 @@ export default class AllPodcast extends Component {
 
         // try to upload image to firebase
         try {
-            const uploadSnapshot = await uploadCommonFile(selectedImage);
+            const uploadSnapshot = await uploadCommonFile(selectedImage)
             // get  full url of image after it is uploaded
-            const downloadURL = await uploadSnapshot.ref.getDownloadURL();
+            const downloadURL = await uploadSnapshot.ref.getDownloadURL()
 
             // lets add the new URL to the array
-            const currentImageURls = this.props.imageURLs || [];
-            const newImageURLs = [...currentImageURls, downloadURL];
+            // const currentImageURls = this.props.imageURLs || []
+            // const newImageURLs = [...currentImageURls, downloadURL]
             // lets called the passed function for parent
             this.onUrlsChange(downloadURL);
-            console.log('downloadURL', downloadURL);
+            console.log('downloadURL', downloadURL)
         } catch (err) {
-            console.error('failed to upload image');
-            console.error(err);
+            console.error('failed to upload image')
+            console.error(err)
         }
     }
 
