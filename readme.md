@@ -6,7 +6,7 @@ The goal of Podster is to give podcast creators a platform to upload and edit th
 
 ### Important Links
 
-* [Deployed App]() via Heroku
+* [Deployed App](https://podster-rowston.herokuapp.com/) via Heroku
 * [Trello Board](https://trello.com/b/tYkyXkAx/podster)
 
 
