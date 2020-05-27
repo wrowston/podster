@@ -72,9 +72,9 @@ export default class CreatorProfile extends Component {
                                         onChange={this.onChangeCurrentCreator}
                                     />
                                 </div>
-                                <Link to={`/creator/${this.props.match.params.creatorId}`}>
-                                    <input type="submit" value="Save" class='btn btn-success' />
-                                </Link>
+
+                                <input type="submit" value="Save" class='btn btn-success' />
+
                                 <Link to={'/'}>
                                     <button
                                         class='btn btn-danger add-margin'
@@ -82,6 +82,11 @@ export default class CreatorProfile extends Component {
                                         Delete
                                 </button>
                                 </Link>
+                                <button
+                                    class='btn btn-dark'
+                                    onClick={this.toggleEditForm}>
+                                    Go Back to Creator Account
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -98,7 +103,7 @@ export default class CreatorProfile extends Component {
                     class='btn btn-dark add-top-margin-btn'
                     onClick={this.toggleEditForm}>
                     {this.state.showEditForm
-                        ? 'Hide Edit Creator Account Form'
+                        ? 'Go Back to Creator Account'
                         : 'Edit Creator Account'}
                 </button>
             </div>

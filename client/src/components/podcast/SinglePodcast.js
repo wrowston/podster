@@ -14,7 +14,8 @@ export default class SinglePodcast extends Component {
             image: '',
             creatorId: '',
         },
-        showEditForm: false
+        showEditForm: false,
+        saveRedirect: false
     }
 
     componentDidMount() {
@@ -47,10 +48,11 @@ export default class SinglePodcast extends Component {
     }
 
     onSubmit = async (evt) => {
+        console.log('On Submit ran')
         evt.preventDefault()
         try {
             const podcastId = this.props.match.params.podcastId
-            console.log(podcastId)
+            console.log('submit podcastID', podcastId)
             await axios.put(`/api/podcast/${podcastId}`, this.state.podcast)
             this.getPodcastById()
         } catch (error) {
@@ -98,12 +100,11 @@ export default class SinglePodcast extends Component {
                                         onChange={this.onChangeCurrentPodcast}
                                     />
                                 </div>
-                                <Link to={'/explore'}>
-                                    <input
-                                        type="submit"
-                                        value="Save"
-                                        class='btn btn-success' />
-                                </Link>
+                                <input
+                                    type="submit"
+                                    value="Save"
+                                    class='btn btn-success' />
+
                                 <Link to={`/creator/${this.state.podcast.creatorId}`}>
                                     <button
                                         class='btn btn-danger add-margin'
@@ -111,12 +112,12 @@ export default class SinglePodcast extends Component {
                                         Delete
                                     </button>
                                 </Link>
+                                <button
+                                    onClick={this.toggleEditForm}
+                                    class='btn btn-dark'>
+                                    Go Back to Podcast
+                                </button>
                             </form>
-                            <button
-                                onClick={this.toggleEditForm}
-                                class='btn btn-dark'>
-                                Go Back to Podcast
-                            </button>
                         </div>
                     </div>
                     : <div class='single-podcast-wrapper'>
