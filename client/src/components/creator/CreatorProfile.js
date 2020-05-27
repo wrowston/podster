@@ -72,15 +72,15 @@ export default class CreatorProfile extends Component {
                                         onChange={this.onChangeCurrentCreator}
                                     />
                                 </div>
+                                <Link to={`/creator/${this.props.match.params.creatorId}`}>
+                                    <input type="submit" value="Save" class='btn btn-success' />
+                                </Link>
                                 <Link to={'/'}>
                                     <button
-                                        class='btn btn-danger'
+                                        class='btn btn-danger add-margin'
                                         onClick={() => this.onDeleteCreator(this.props.match.params.creatorId)}>
                                         Delete
                                 </button>
-                                </Link>
-                                <Link to={`/creator/${this.props.match.params.creatorId}`}>
-                                    <input type="submit" value="Save" class='btn btn-success' />
                                 </Link>
                             </form>
                         </div>
