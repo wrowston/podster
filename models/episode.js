@@ -4,7 +4,6 @@ const EpisodeSchema = new mongoose.Schema({
     name: String,
     description: String,
     dateUploaded: Date,
-    favorites: Number,
     podcastId: {
         type: String,
         required: true

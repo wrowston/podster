@@ -1,9 +1,7 @@
 const mongoose = require('./connection.js')
 
 const CreatorSchema = new mongoose.Schema({
-    name: String,
-    userName: String,
-    password: String
+    name: String
 })
 
 const CreatorModel = mongoose.model('creator', CreatorSchema)
