@@ -11,6 +11,7 @@ export default class CreatorProfile extends Component {
         },
         showEditForm: false
     }
+
     componentDidMount() {
         this.getCreatorProfile()
     }

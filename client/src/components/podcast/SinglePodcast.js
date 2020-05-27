@@ -50,6 +50,7 @@ export default class SinglePodcast extends Component {
         evt.preventDefault()
         try {
             const podcastId = this.props.match.params.podcastId
+            console.log(podcastId)
             await axios.put(`/api/podcast/${podcastId}`, this.state.podcast)
             this.getPodcastById()
         } catch (error) {
@@ -97,21 +98,13 @@ export default class SinglePodcast extends Component {
                                         onChange={this.onChangeCurrentPodcast}
                                     />
                                 </div>
-                                <div class="form-group">
-                                    <label htmlFor="imageUrl">Image</label>
+                                <Link to={'/explore'}>
                                     <input
-                                        type="text"
-                                        class="form-control"
-                                        name="imageUrl"
-                                        value={this.state.podcast.image}
-                                        onChange={this.onChangeCurrentPodcast}
-                                    />
-                                </div>
-                                <input
-                                    type="submit"
-                                    value="Save"
-                                    class='btn btn-success' />
-                                <Link to={'/'}>
+                                        type="submit"
+                                        value="Save"
+                                        class='btn btn-success' />
+                                </Link>
+                                <Link to={`/creator/${this.state.podcast.creatorId}`}>
                                     <button
                                         class='btn btn-danger add-margin'
                                         onClick={() => this.onDeletePodcast(this.props.match.params.podcastId)}>
