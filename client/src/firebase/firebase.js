@@ -1,9 +1,4 @@
-// // <!-- The core Firebase JS SDK is always required and must be listed first -->
-// "https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"
-
-// // <!-- TODO: Add SDKs for Firebase products that you want to use
-// //      https://firebase.google.com/docs/web/setup#available-libraries -->
-// "https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"
+// code provided by Brandon Moody
 
 import * as firebase from 'firebase'
 

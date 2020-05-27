@@ -19,7 +19,8 @@ export default class AllEpisodes extends Component {
         },
         allEpisodes: [],
         showUploadForm: false,
-        play: false
+        play: false,
+        uploadProgress: ''
     }
 
     componentDidMount() {
@@ -50,6 +51,12 @@ export default class AllEpisodes extends Component {
         this.setState(newState)
     }
 
+    getUploadProgress = (progress) => {
+        const newState = { ...this.state }
+        newState.uploadProgress = 'Upload is ' + progress + '% done'
+        this.setState(newState)
+    }
+
 
     // code snippet provided by Brandon Moody
     onFileSelect = async (evt) => {
@@ -69,6 +76,12 @@ export default class AllEpisodes extends Component {
         // try to upload audio to firebase
         try {
             const uploadSnapshot = await uploadCommonFile(selectedAudio)
+
+            // upload progress
+            const progress = (uploadSnapshot.bytesTransferred / uploadSnapshot.totalBytes) * 100
+            console.log('Upload is ' + progress + '% done')
+            this.getUploadProgress(progress)
+
             // get  full url of audio after it is uploaded
             const downloadURL = await uploadSnapshot.ref.getDownloadURL()
 
@@ -137,60 +150,69 @@ export default class AllEpisodes extends Component {
                 {this.state.showUploadForm ?
                     <div>
                         <h5>Upload a New Episode</h5>
-                        <form onSubmit={this.onSubmit}>
-                            <div>
-                                <label htmlFor="name">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={this.state.episode.name}
-                                    onChange={this.onChangeEpisode}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="description">Description</label>
-                                <input
-                                    type="text"
-                                    name="description"
-                                    value={this.state.episode.description}
-                                    onChange={this.onChangeEpisode}
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="hidden"
-                                    name="dateUploaded"
-                                    value={this.state.episode.dateUploaded}
-                                    onChange={this.onChangeEpisode}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="audioFile">Audio File</label>
-                                <input
-                                    type="file"
-                                    name="audioFile"
-                                    value={this.state.episode.audioFile}
-                                    onChange={this.onFileSelect}
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="hidden"
-                                    name="audioUrl"
-                                    value={this.state.episode.audaudioUrlioFile}
-                                    onChange={this.onChangeEpisode}
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="hidden"
-                                    name="podcastId"
-                                    value={this.state.episode.podcastId}
-                                    onChange={this.onChangeEpisode}
-                                />
-                            </div>
-                            <input type="submit" value="Add Episode" />
-                        </form>
+                        <div class='upload-form-wrapper'>
+                            <form onSubmit={this.onSubmit}>
+                                <div class="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        class="form-control"
+                                        value={this.state.episode.name}
+                                        onChange={this.onChangeEpisode}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="description">Description</label>
+                                    <input
+                                        type="text"
+                                        name="description"
+                                        class="form-control"
+                                        value={this.state.episode.description}
+                                        onChange={this.onChangeEpisode}
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="hidden"
+                                        name="dateUploaded"
+                                        value={this.state.episode.dateUploaded}
+                                        onChange={this.onChangeEpisode}
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <label htmlFor="audioFile">Audio File</label>
+                                    <input
+                                        type="file"
+                                        class="add-margin"
+                                        name="audioFile"
+                                        value={this.state.episode.audioFile}
+                                        onChange={this.onFileSelect}
+                                    />
+                                </div>
+                                <div>
+                                    <label htmlFor="uploadProgress">{this.uploadProgress}</label>
+
+                                </div>
+                                <div>
+                                    <input
+                                        type="hidden"
+                                        name="audioUrl"
+                                        value={this.state.episode.audaudioUrlioFile}
+                                        onChange={this.onChangeEpisode}
+                                    />
+                                </div>
+                                <div>
+                                    <input
+                                        type="hidden"
+                                        name="podcastId"
+                                        value={this.state.episode.podcastId}
+                                        onChange={this.onChangeEpisode}
+                                    />
+                                </div>
+                                <input type="submit" value="Add Episode" class='btn btn-success' />
+                            </form>
+                        </div>
                     </div>
                     :
                     null
