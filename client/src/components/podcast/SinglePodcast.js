@@ -131,7 +131,14 @@ export default class SinglePodcast extends Component {
                             <img src={this.state.podcast.imageUrl} alt='podcast cover art' class='single-image' height={250} width={250} />
                             <div class='podcast-name-wrapper'>
                                 <div class='single-name'>{this.state.podcast.name}</div>
-                                <div class='single-creator'>Created By: <Link to={`/creator/${this.state.podcast.creatorId}`} class='single-creator'></Link>{this.state.podcast.creator}</div>
+                                <Link
+                                    to={`/creator/${this.state.podcast.creatorId}`}
+                                    class='single-creator'>
+                                    <div
+                                        class='single-creator'>
+                                        Created By: {this.state.podcast.creator}
+                                    </div>
+                                </Link>
                                 <div class='single-genre'>{this.state.podcast.genre}</div>
                             </div>
                         </div>

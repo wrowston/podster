@@ -148,9 +148,19 @@
   color: black;
 }
 
-.form-wrapper {
-  margin: 50px 400px 500px 400px;
-  text-align: left;
+@media (max-width: 1000px) {
+  .form-wrapper {
+    margin: 50px 50px 500px 50px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 1001px) {
+  .form-wrapper {
+    margin: 50px 300px 500px 300px;
+    text-align: left;
+  }
+
 }
 
 .upload-form-wrapper {

@@ -59,23 +59,28 @@ export default class CreatorProfile extends Component {
                     ?
                     <div>
                         <h4>Edit Creator</h4>
-                        <form onSubmit={this.onSubmit}>
-                            <div>
-                                <label htmlFor="name">Name</label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={this.state.creator.name}
-                                    onChange={this.onChangeCurrentCreator}
-                                />
-                            </div>
-                            <Link to={'/'}>
-                                <button onClick={() => this.onDeleteCreator(this.props.match.params.creatorId)}>
-                                    Delete
+                        <div class='form-wrapper'>
+                            <form onSubmit={this.onSubmit}>
+                                <div class="form-group">
+                                    <label htmlFor="name">Name</label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        class="form-control"
+                                        value={this.state.creator.name}
+                                        onChange={this.onChangeCurrentCreator}
+                                    />
+                                </div>
+                                <Link to={'/'}>
+                                    <button
+                                        class='btn btn-danger'
+                                        onClick={() => this.onDeleteCreator(this.props.match.params.creatorId)}>
+                                        Delete
                                 </button>
-                            </Link>
-                            <input type="submit" value="Save" />
-                        </form>
+                                </Link>
+                                <input type="submit" value="Save" class='btn btn-success' />
+                            </form>
+                        </div>
                     </div>
                     :
                     <div>
