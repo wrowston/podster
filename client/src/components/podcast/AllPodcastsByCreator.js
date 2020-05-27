@@ -11,7 +11,6 @@ export default class AllPodcast extends Component {
             creator: '',
             description: '',
             genre: '',
-            followers: 0,
             image: '',
             imageUrl: '',
             creatorId: this.props.creatorId

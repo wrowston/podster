@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 export default class NewCreator extends Component {
 
@@ -41,10 +41,12 @@ export default class NewCreator extends Component {
                             onChange={this.handleChange}
                             value={this.state.creator.name} />
                     </div>
-                    <input type='submit' value='Create Account' class='btn btn-success' />
+                    <Link to={`/creator/${this.state.creator._id}`}>
+                        <input type='submit' value='Create Account' class='btn btn-success' />
+                    </Link>
                 </form>
 
-            </div>
+            </div >
         )
     }
 }

@@ -190,10 +190,10 @@ export default class AllEpisodes extends Component {
                                         onChange={this.onFileSelect}
                                     />
                                 </div>
-                                <div>
+                                {/* <div>
                                     <label htmlFor="uploadProgress">{this.uploadProgress}</label>
 
-                                </div>
+                                </div> */}
                                 <div>
                                     <input
                                         type="hidden"
