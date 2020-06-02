@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { uploadCommonFile, deleteCommonFile } from '../../firebase/firebase.js'
+import { uploadCommonFile } from '../../firebase/firebase.js'
 
 
 const moment = require('moment')
@@ -117,8 +117,8 @@ export default class AllEpisodes extends Component {
     render() {
         return (
             <div>
-                <table class='table'>
-                    <thead class="thead-dark">
+                <table className='table'>
+                    <thead className="thead-dark">
                         <th scope="col">Name</th>
                         <th scope="col">Date</th>
                         <th scope="col">Audio</th>
@@ -126,19 +126,19 @@ export default class AllEpisodes extends Component {
                     <tbody>
                         {this.state.allEpisodes.map((episode, index) => {
                             return (
-                                <tr key={`45745gwg - ${index}`} class='episode-table'>
+                                <tr key={`45745gwg - ${index}`} className='episode-table'>
                                     <td>
                                         <Link
                                             to={`/episode/${episode._id}`}
-                                            class='episode-name'>
+                                            className='episode-name'>
                                             <div>{episode.name}</div>
                                         </Link>
                                     </td>
-                                    <td><div class='episode-info'>{episode.dateUploaded}</div></td>
+                                    <td><div className='episode-info'>{episode.dateUploaded}</div></td>
                                     <td>
                                         <audio controls
                                             src={episode.audioUrl}
-                                            class='episode-audio'></audio>
+                                            className='episode-audio'></audio>
                                     </td>
                                 </tr>
                             )
@@ -150,24 +150,24 @@ export default class AllEpisodes extends Component {
                 {this.state.showUploadForm ?
                     <div>
                         <h5>Upload a New Episode</h5>
-                        <div class='upload-form-wrapper'>
+                        <div className='upload-form-wrapper'>
                             <form onSubmit={this.onSubmit}>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input
                                         type="text"
                                         name="name"
-                                        class="form-control"
+                                        className="form-control"
                                         value={this.state.episode.name}
                                         onChange={this.onChangeEpisode}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="description">Description</label>
                                     <input
                                         type="text"
                                         name="description"
-                                        class="form-control"
+                                        className="form-control"
                                         value={this.state.episode.description}
                                         onChange={this.onChangeEpisode}
                                     />
@@ -180,11 +180,11 @@ export default class AllEpisodes extends Component {
                                         onChange={this.onChangeEpisode}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="audioFile">Audio File</label>
                                     <input
                                         type="file"
-                                        class="add-margin"
+                                        className="add-margin"
                                         name="audioFile"
                                         value={this.state.episode.audioFile}
                                         onChange={this.onFileSelect}
@@ -210,7 +210,7 @@ export default class AllEpisodes extends Component {
                                         onChange={this.onChangeEpisode}
                                     />
                                 </div>
-                                <input type="submit" value="Add Episode" class='btn btn-success' />
+                                <input type="submit" value="Add Episode" className='btn btn-success' />
                             </form>
                         </div>
                     </div>
@@ -218,13 +218,13 @@ export default class AllEpisodes extends Component {
                     null
                 }
 
-                <button onClick={this.toggleUploadForm} type="button" class="btn btn-dark">
+                <button onClick={this.toggleUploadForm} type="button" className="btn btn-dark">
                     {this.state.showUploadForm
                         ? 'Hide Upload Form'
                         : 'Upload a New Episode'}
                 </button>
 
-                <button onClick={this.props.toggleEditForm} type="button" class="btn btn-dark add-margin">
+                <button onClick={this.props.toggleEditForm} type="button" className="btn btn-dark add-margin">
                     {this.props.showEditForm
                         ? 'Hide Edit Podcast Form'
                         : 'Edit Podcast'}

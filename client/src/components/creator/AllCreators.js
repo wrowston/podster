@@ -27,14 +27,14 @@ export default class AllCreators extends Component {
     render() {
         return (
             <div>
-                <h2 class='add-margin'>Creators</h2>
-                <div class='creator-list'>
+                <h2 className='add-margin'>Creators</h2>
+                <div className='creator-list'>
                     {this.state.allCreators.map((creator, index) => {
                         return (
                             <div key={`ht6wb645 - ${index}`}>
                                 <Link
                                     to={`/creator/${creator._id}`}
-                                    class="list-group-item list-group-item-action list-group-item-dark">
+                                    className="list-group-item list-group-item-action list-group-item-dark">
                                     <div>{creator.name}</div>
                                 </Link>
                             </div>

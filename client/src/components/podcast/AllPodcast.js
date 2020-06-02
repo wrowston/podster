@@ -28,16 +28,16 @@ export default class AllPodcast extends Component {
         return (
             <div>
                 <h1>Explore</h1>
-                <div class='podcast-list-wrapper'>
+                <div className='podcast-list-wrapper'>
                     {this.state.allPodcasts.map((podcast, index) => {
                         return (
-                            <div key={`t4n328on - ${index}`} class='podcast-wrapper'>
-                                <img src={podcast.imageUrl} alt='podcast cover art' height={200} width={200} class='podcast-image' />
-                                <div class='podcast-info-wrapper'>
-                                    <Link to={`/podcast/${podcast._id}`} class='podcast-name'><div>{podcast.name}</div></Link>
-                                    <Link to={`/creator/${podcast.creatorId}`} class='podcast-creator'><div>{podcast.creator}</div></Link>
-                                    <div class='podcast-info'>{podcast.genre}</div>
-                                    <div class='podcast-info'>{podcast.description}</div>
+                            <div key={`t4n328on - ${index}`} className='podcast-wrapper'>
+                                <img src={podcast.imageUrl} alt='podcast cover art' height={200} width={200} className='podcast-image' />
+                                <div className='podcast-info-wrapper'>
+                                    <Link to={`/podcast/${podcast._id}`} className='podcast-name'><div>{podcast.name}</div></Link>
+                                    <Link to={`/creator/${podcast.creatorId}`} className='podcast-creator'><div>{podcast.creator}</div></Link>
+                                    <div className='podcast-info'>{podcast.genre}</div>
+                                    <div className='podcast-info'>{podcast.description}</div>
                                 </div>
                             </div>
                         )

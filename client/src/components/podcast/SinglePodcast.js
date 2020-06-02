@@ -63,38 +63,38 @@ export default class SinglePodcast extends Component {
 
     render() {
         return (
-            <div class='add-margin'>
+            <div className='add-margin'>
                 {this.state.showEditForm
                     ?
                     <div>
                         <h4>Edit Podcast</h4>
-                        <div class='form-wrapper'>
+                        <div className='form-wrapper'>
                             <form onSubmit={this.onSubmit}>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="name"
                                         value={this.state.podcast.name}
                                         onChange={this.onChangeCurrentPodcast}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="description">Description</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="description"
                                         value={this.state.podcast.description}
                                         onChange={this.onChangeCurrentPodcast}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="genre">Genre</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="genre"
                                         value={this.state.podcast.genre}
                                         onChange={this.onChangeCurrentPodcast}
@@ -103,42 +103,42 @@ export default class SinglePodcast extends Component {
                                 <input
                                     type="submit"
                                     value="Save"
-                                    class='btn btn-success' />
+                                    className='btn btn-success' />
 
                                 <Link to={`/creator/${this.state.podcast.creatorId}`}>
                                     <button
-                                        class='btn btn-danger add-margin'
+                                        className='btn btn-danger add-margin'
                                         onClick={() => this.onDeletePodcast(this.props.match.params.podcastId)}>
                                         Delete
                                     </button>
                                 </Link>
                                 <button
                                     onClick={this.toggleEditForm}
-                                    class='btn btn-dark'>
+                                    className='btn btn-dark'>
                                     Go Back to Podcast
                                 </button>
                             </form>
                         </div>
                     </div>
-                    : <div class='single-podcast-wrapper'>
-                        <div class='image-name-creator-wrapper'>
-                            <img src={this.state.podcast.imageUrl} alt='podcast cover art' class='single-image' height={250} width={250} />
-                            <div class='podcast-name-wrapper'>
-                                <div class='single-name'>{this.state.podcast.name}</div>
+                    : <div className='single-podcast-wrapper'>
+                        <div className='image-name-creator-wrapper'>
+                            <img src={this.state.podcast.imageUrl} alt='podcast cover art' className='single-image' height={250} width={250} />
+                            <div className='podcast-name-wrapper'>
+                                <div className='single-name'>{this.state.podcast.name}</div>
                                 <Link
                                     to={`/creator/${this.state.podcast.creatorId}`}
-                                    class='single-creator'>
+                                    className='single-creator'>
                                     <div
-                                        class='single-creator'>
+                                        className='single-creator'>
                                         Created By: {this.state.podcast.creator}
                                     </div>
                                 </Link>
-                                <div class='single-genre'>{this.state.podcast.genre}</div>
+                                <div className='single-genre'>{this.state.podcast.genre}</div>
                             </div>
                         </div>
-                        <div class='single-podcast-info-wrapper'>
-                            <div class='about'>ABOUT</div>
-                            <div class='single-description'>{this.state.podcast.description}</div>
+                        <div className='single-podcast-info-wrapper'>
+                            <div className='about'>ABOUT</div>
+                            <div className='single-description'>{this.state.podcast.description}</div>
                         </div>
                         <AllEpisodes
                             podcastId={this.props.match.params.podcastId}

@@ -17,7 +17,7 @@ app.use('/api/creator', creatorRouter)
 
 
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3002
 
 app.listen(PORT, () => {
     console.log(`App is listening on PORT ${PORT}`)

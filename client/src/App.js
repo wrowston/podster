@@ -18,14 +18,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class='title'>Podster</div>
-          <Link to='/' class="nav-item nav-link nav-text-color">Home</Link>
-          <Link to='/explore' class="nav-item nav-link nav-text-color">Explore</Link>
-          <Link to='/creators' class="nav-item nav-link nav-text-color">Creators</Link>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div className='title'>Podster</div>
+          <Link to='/' className="nav-item nav-link nav-text-color">Home</Link>
+          <Link to='/explore' className="nav-item nav-link nav-text-color">Explore</Link>
+          <Link to='/creators' className="nav-item nav-link nav-text-color">Creators</Link>
         </nav>
 
-        <div class='wrapper'>
+        <div className='wrapper'>
           <Switch>
 
             <Route exact path='/' component={Home} />

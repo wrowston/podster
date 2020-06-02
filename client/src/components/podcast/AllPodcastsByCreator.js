@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { uploadCommonFile, deleteCommonFile } from '../../firebase/firebase.js'
+import { uploadCommonFile } from '../../firebase/firebase.js'
 
 export default class AllPodcast extends Component {
 
@@ -116,44 +116,44 @@ export default class AllPodcast extends Component {
                     ?
                     <div>
                         <h3>Add a Podcast</h3>
-                        <div class='form-wrapper'>
+                        <div className='form-wrapper'>
 
                             <form onSubmit={this.onSubmit}>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="name"
                                         value={this.state.newPodcast.name}
                                         onChange={this.onChangePodcast}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="description">Description</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="description"
                                         value={this.state.newPodcast.description}
                                         onChange={this.onChangePodcast}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="genre">Genre</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="genre"
                                         value={this.state.newPodcast.genre}
                                         onChange={this.onChangePodcast}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="image">Image</label>
                                     <input
                                         type="file"
-                                        class="add-margin"
+                                        className="add-margin"
                                         name="image"
                                         value={this.state.newPodcast.image}
                                         onChange={this.onFileSelect}
@@ -175,41 +175,41 @@ export default class AllPodcast extends Component {
                                         onChange={this.onChangePodcast}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="imageUrl">ImageURL</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="imageUrl"
                                         value={this.state.newPodcast.imageUrl}
                                         onChange={this.onChangePodcast}
                                     />
                                 </div>
-                                <input type="submit" value="Add Podcast" class='btn btn-success' />
+                                <input type="submit" value="Add Podcast" className='btn btn-success' />
                             </form>
-                            <button class='btn btn-dark add-top-margin-btn' onClick={this.toggleAddForm}>
+                            <button className='btn btn-dark add-top-margin-btn' onClick={this.toggleAddForm}>
                                 Go Back to Creator Profile
                             </button>
                         </div>
                     </div>
                     :
                     <div>
-                        <div class='podcast-list-wrapper'>
+                        <div className='podcast-list-wrapper'>
                             {this.state.allPodcasts.map((podcast, index) => {
                                 return (
-                                    <div key={`t4n328on - ${index}`} class='podcast-wrapper'>
-                                        <img src={podcast.imageUrl} alt='podcast cover art' height={200} width={200} class='podcast-image' />
-                                        <div class='podcast-info-wrapper'>
-                                            <Link to={`/podcast/${podcast._id}`} class='podcast-name'><div>{podcast.name}</div></Link>
-                                            <div class='podcast-creator'>{podcast.creator}</div>
-                                            <div class='podcast-info'>{podcast.genre}</div>
-                                            <div class='podcast-info'>{podcast.description}</div>
+                                    <div key={`t4n328on - ${index}`} className='podcast-wrapper'>
+                                        <img src={podcast.imageUrl} alt='podcast cover art' height={200} width={200} className='podcast-image' />
+                                        <div className='podcast-info-wrapper'>
+                                            <Link to={`/podcast/${podcast._id}`} className='podcast-name'><div>{podcast.name}</div></Link>
+                                            <div className='podcast-creator'>{podcast.creator}</div>
+                                            <div className='podcast-info'>{podcast.genre}</div>
+                                            <div className='podcast-info'>{podcast.description}</div>
                                         </div>
                                     </div>
                                 )
                             })}
                         </div>
-                        <button class='btn btn-dark' onClick={this.toggleAddForm}>
+                        <button className='btn btn-dark' onClick={this.toggleAddForm}>
                             Create a New Podcast
                         </button>
                     </div>

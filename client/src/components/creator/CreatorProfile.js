@@ -54,36 +54,36 @@ export default class CreatorProfile extends Component {
     render() {
         return (
             <div>
-                <h4 class='add-margin'>Creator Profile</h4>
+                <h4 className='add-margin'>Creator Profile</h4>
 
                 {this.state.showEditForm
                     ?
                     <div>
                         <h4>Edit Creator</h4>
-                        <div class='form-wrapper'>
+                        <div className='form-wrapper'>
                             <form onSubmit={this.onSubmit}>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input
                                         type="text"
                                         name="name"
-                                        class="form-control"
+                                        className="form-control"
                                         value={this.state.creator.name}
                                         onChange={this.onChangeCurrentCreator}
                                     />
                                 </div>
 
-                                <input type="submit" value="Save" class='btn btn-success' />
+                                <input type="submit" value="Save" className='btn btn-success' />
 
                                 <Link to={'/'}>
                                     <button
-                                        class='btn btn-danger add-margin'
+                                        className='btn btn-danger add-margin'
                                         onClick={() => this.onDeleteCreator(this.props.match.params.creatorId)}>
                                         Delete
                                 </button>
                                 </Link>
                                 <button
-                                    class='btn btn-dark'
+                                    className='btn btn-dark'
                                     onClick={this.toggleEditForm}>
                                     Go Back to Creator Account
                                 </button>
@@ -100,7 +100,7 @@ export default class CreatorProfile extends Component {
                     </div>}
 
                 <button
-                    class='btn btn-dark add-top-margin-btn'
+                    className='btn btn-dark add-top-margin-btn'
                     onClick={this.toggleEditForm}>
                     {this.state.showEditForm
                         ? 'Go Back to Creator Account'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 export default class NewCreator extends Component {
 
@@ -19,6 +19,9 @@ export default class NewCreator extends Component {
 
     onSubmit = async (evt) => {
         evt.preventDefault()
+        const newState = { ...this.state }
+        newState.redirect = true
+        this.setState(newState)
         try {
             await axios.post('/api/creator', this.state.creator)
             console.log('created new creator account')
@@ -29,21 +32,24 @@ export default class NewCreator extends Component {
     }
 
     render() {
+
+        if (this.state.redirect) {
+            return <Redirect to='/creators' />
+        }
+
         return (
-            <div class='form-wrapper'>
+            <div className='form-wrapper'>
                 <form onSubmit={this.onSubmit}>
-                    <div class="form-group">
+                    <div className="form-group">
                         <label htmlFor='name'>Name</label>
                         <input
                             type='text'
-                            class='form-control'
+                            className='form-control'
                             name='name'
                             onChange={this.handleChange}
                             value={this.state.creator.name} />
                     </div>
-                    <Link to={`/creator/${this.state.creator._id}`}>
-                        <input type='submit' value='Create Account' class='btn btn-success' />
-                    </Link>
+                    <input type='submit' value='Create Account' className='btn btn-success' />
                 </form>
 
             </div >

@@ -63,51 +63,51 @@ export default class SingleEpisode extends Component {
                 {this.state.showEditForm
                     ?
                     <div>
-                        <h4 class='add-margin'>Edit Episode</h4>
-                        <div class='form-wrapper'>
+                        <h4 className='add-margin'>Edit Episode</h4>
+                        <div className='form-wrapper'>
                             <form onSubmit={this.onSubmit}>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="name">Name</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="name"
                                         value={this.state.episode.name}
                                         onChange={this.onChangeCurrentEpisode}
                                     />
                                 </div>
-                                <div class="form-group">
+                                <div className="form-group">
                                     <label htmlFor="description">Description</label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control"
                                         name="description"
                                         value={this.state.episode.description}
                                         onChange={this.onChangeCurrentEpisode}
                                     />
                                 </div>
-                                <input type="submit" value="Save" class='btn btn-success' />
+                                <input type="submit" value="Save" className='btn btn-success' />
                                 <Link to={'/'}>
-                                    <button class='btn btn-danger add-margin' onClick={() => this.onDeleteEpisode(this.props.match.params.episodeId)}>
+                                    <button className='btn btn-danger add-margin' onClick={() => this.onDeleteEpisode(this.props.match.params.episodeId)}>
                                         Delete
                                     </button>
                                 </Link>
                             </form>
-                            <button onClick={this.toggleEditForm} class='btn btn-dark'>Go Back to Episode</button>
+                            <button onClick={this.toggleEditForm} className='btn btn-dark'>Go Back to Episode</button>
                         </div>
                     </div>
                     :
-                    <div class="card text-center single-episode">
-                        <div class='card-header'>Current Episode</div>
-                        <div class='card-body '>
-                            <h5 class='card-title add-margin'>{this.state.episode.name}</h5>
-                            <div class='card-text add-margin'>{this.state.episode.description}</div>
+                    <div className="card text-center single-episode">
+                        <div className='card-header'>Current Episode</div>
+                        <div className='card-body '>
+                            <h5 className='card-title add-margin'>{this.state.episode.name}</h5>
+                            <div className='card-text add-margin'>{this.state.episode.description}</div>
                             <div>
-                                <audio controls src={this.state.episode.audioUrl} class='single-episode-audio add-margin'></audio>
+                                <audio controls src={this.state.episode.audioUrl} className='single-episode-audio add-margin'></audio>
                             </div>
-                            <button onClick={this.toggleEditForm} class='btn btn-dark add-margin'>Edit Episode</button>
+                            <button onClick={this.toggleEditForm} className='btn btn-dark add-margin'>Edit Episode</button>
                         </div>
-                        <div class="card-footer text-muted">
+                        <div className="card-footer text-muted">
                             {this.state.episode.dateUploaded}
                         </div>
                     </div>}
