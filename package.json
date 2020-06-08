@@ -23,6 +23,7 @@
     "react-firebase-file-uploader": "^2.4.3",
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.2.0",
-    "react-sound": "^1.2.0"
+    "react-sound": "^1.2.0",
+    "websocket-extensions": "^0.1.4"
   }
 }
